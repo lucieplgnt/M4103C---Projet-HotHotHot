@@ -1,0 +1,25 @@
+* {
+    scroll-behavior: smooth;
+}
+.sec1 {
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+}
+.sec2 {
+    height: 100vh;
+    width: 100%;
+    background-color: blueviolet;
+}
+.menu {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    color: white;
+}
+.menu1 {
+    color: white;
+}
+.menu2 {
+    color: white;
+}

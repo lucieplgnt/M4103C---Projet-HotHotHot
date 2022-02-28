@@ -15,12 +15,10 @@ body.dark {
 .sec1 {
   height: 100vh;
   width: 100%;
-  background-color: black;
 }
 .sec2 {
   height: 100vh;
   width: 100%;
-  background-color: blueviolet;
 }
 .menu {
   position: fixed;

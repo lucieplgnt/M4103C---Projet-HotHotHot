@@ -1,9 +1,16 @@
 * {
-  scroll-behavior: smooth;
-  padding: 0;
   margin: 0;
-  top: 0;
-  left: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body.light {
+  background-color: #f1f1f1;
+  transition: all 0.5s ease;
+}
+body.dark {
+  background-color: rgb(34, 33, 42);
+  transition: all 0.5s ease;
 }
 .sec1 {
   height: 100vh;

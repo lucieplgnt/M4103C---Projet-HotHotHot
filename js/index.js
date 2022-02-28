@@ -15,8 +15,10 @@ var socket = new WebSocket('wss://ws.hothothot.dog:9502');
 socket.onopen = () => {
     socket.send("Hello!");
   };
+
   
 socket.onmessage = (data) => {
-    console.log(data);
-    console.log("data reçu");
+   let stockobj = JSON.parse(data)
+   console.log(stockobj.p);
+   console.log("data reçu");
   };

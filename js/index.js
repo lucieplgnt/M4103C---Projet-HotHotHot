@@ -27,6 +27,7 @@ socket.onmessage = (msg) => {
     let ext = capteurs['capteurs'][1];
     let interieur = capteurs['capteurs'][2];
     console.log(ext['Valeur']);
+    document.getElementsByClassName("contenu activeContenu").textContent = ext['Valeur'];
     console.log(interieur['Valeur']);
     console.log("data reçu");
   }

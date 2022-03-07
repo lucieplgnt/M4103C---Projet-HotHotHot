@@ -80,3 +80,7 @@ socket.onerror = function(response) {
   };
 
 console.log();
+
+
+let tempp = document.querySelector(".temperature");
+tempp.textContent = "500";

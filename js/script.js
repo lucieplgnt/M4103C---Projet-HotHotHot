@@ -113,7 +113,7 @@ if(msg.data.length > 0)
   console.log(ext['Valeur']);
   console.log(interieur['Valeur']);
 
-  let tmp = document.querySelectorAll(".temperature");
+  let tmp = document.querySelector(".temperature");
   tmp.textContent = "500";
 
 

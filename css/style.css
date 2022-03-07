@@ -12,7 +12,6 @@ body.light {
 .sec1 {
     height: 100vh;
     width: 100%;
-    background-color: #FFFFF2;
 }
 body.dark {
   background-color: rgb(34, 33, 42);

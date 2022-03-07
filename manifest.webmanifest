@@ -1,8 +1,8 @@
 {
 
-    "name": "My Custom PWA",
+    "name": "KOTE Temperature",
 
-    "short_name": "Custom PWA",
+    "short_name": "KOTE",
 
     "description": "An example of what can do a Progressive Web App.",
 
@@ -14,7 +14,7 @@
 
       {
 
-        "src": "images/rubik-256x256.png",
+        "src": "images/kakashi.png",
 
         "sizes": "256x256",
 
@@ -24,7 +24,7 @@
 
       {
 
-        "src": "images/rubik-128x128.png",
+        "src": "images/pikachu.png",
 
         "sizes": "128x128",
 

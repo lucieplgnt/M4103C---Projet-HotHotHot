@@ -22,11 +22,17 @@ self.addEventListener('install', (e) => {
   
       caches.open('my-custom-pwa').then((cache) => cache.addAll([
   
-          "index.html",
-  
-          "scripts/main.js",
-  
-          "sw.js",
+        "index.html",
+
+        "js/script.js",
+
+        "service-worker.js",
+
+        "style/style.css",
+
+        "images/pikachu.png",
+
+        "images/kakashi.png"
   
   // ... ajouter les autres ressources à mettre en cache
   

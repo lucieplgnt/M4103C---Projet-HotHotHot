@@ -110,12 +110,12 @@ if(msg.data.length > 0)
   let latempExt = "Température extérieur : " + ext['Valeur'];
   let latempInt = "Température intérieur : " + interieur['Valeur'];
 
-  console.log(ext['Valeur']);
-  console.log(interieur['Valeur']);
+  console.log(latempExt);
+  console.log(latempInt);
 
   let tmp = document.querySelector(".temperature");
   tmp.textContent = latempExt;
-  let tmp2= document.querySelector(".temperature2");
+  let tmp2 = document.querySelector(".temperature2");
   tmp2.textContent= latempInt;
 
   console.log("data reçu");

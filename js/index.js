@@ -27,13 +27,13 @@ socket.onmessage = (msg) => {
     let ext = capteurs['capteurs'][1];
     let interieur = capteurs['capteurs'][2];
     console.log(ext['Valeur']);
-    document.getElementsByClassName("contenu activeContenu").textContent = ext['Valeur'];
+    document.getElementsByClassName(".temperature").textContent = ext['Valeur'];
     console.log(interieur['Valeur']);
     console.log("data reçu");
   }
   else {
     console.log("changement de connection");
-    fetch("https://hothothot.dog/api/capteurs/exterieur",
+    fetch("https://hothothot.dog/api/capteurs/",
   {
       headers: {
         'Accept': 'application/json',

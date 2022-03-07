@@ -5,17 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title>Document</title>
 </head>
-<body>
+<body class="dark">
     <div class="menu">
-        <a href="#sec1" class="menu1">Accueil</a>
-        <a href="#sec2" class="menu2">Documentation</a>
+        <div class="close-menu">
+            <div class="menu-content">
+                <i class='bx bx-menu'></i>
+            </div>
+            <div class="main-menu">
+                <a href="#sec1" class="menu1"><span>Accueil</span></a>
+                <a href="#sec2" class="menu2">Documentation</a>
+            </div>
+            <div class="theme-content">
+                <i class='bx bx-sun'></i>
+            </div>
+        </div>
+        <div class="open-menu">
+            <div class="menu-content2">
+                <div class="connect">
+                    <i class="bx bx-user"></i>
+                    <span class="tooltip1">connexion</span>
+                    <!-- <p class="p1">connexion</p> -->
+                </div>
+                <div class="disconnect">
+                    <i class="bx bx-wifi-off"></i>
+                    <span class="tooltip">hors ligne</span>
+                </div>
+            </div>
+        </div>
     </div>
     
     <section class="sec1" id="sec1">
         <div class="container">
-
             <div class="container-onglets">
                 <div class="onglets active" data-block="1">Données Temps réel</div>
                 <div class="onglets" data-block="2">Données Graphe</div>
@@ -33,11 +56,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur perspiciatis alias quod, dolores eum illum doloremque assumenda odio architecto, dolorum vitae nobis, quo deleniti ipsum.</p>
             </div>
         </div>
-        <script src="js/script.js"></script>
-
     </section>
-  
-    <section class="sec1" id="sec1"></section>
 
     <section class="sec2" id="sec2">
         <div class="presentation">
@@ -64,5 +83,7 @@
             </div>
         </div>
     </section>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

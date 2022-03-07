@@ -426,6 +426,11 @@ body.dark {
     color: #252627;
 }
 
+.myChart{
+  width: 20%;
+  display: flex;
+}
+
 /* Anim */
 
 .active {

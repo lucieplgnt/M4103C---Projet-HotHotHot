@@ -33,7 +33,7 @@ socket.onmessage = (msg) => {
     console.log(interieur['Valeur']);
 
     let tmp = document.querySelectorAll(".temperature");
-    tmp.textContent = latemp;
+    tmp.textContent = "500";
 
 
     console.log("data reçu");

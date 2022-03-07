@@ -113,8 +113,8 @@ if(msg.data.length > 0)
   console.log(ext['Valeur']);
   console.log(interieur['Valeur']);
 
-  let tmp = document.querySelector(".temperature");
-  tmp.textContent = "500";
+  /* let tmp = document.querySelector(".temperature");
+  tmp.textContent = "500"; */
 
 
   console.log("data reçu");
@@ -161,3 +161,6 @@ fetch("https://hothothot.dog/api/capteurs/exterieur",
 };
 
 console.log();
+
+let tmp = document.querySelector(".temperature");
+tmp.textContent = "500";

@@ -113,7 +113,7 @@ if(msg.data.length > 0)
   console.log(interieur['Valeur']);
 
   let tmp = document.querySelector(".temperature");
-  tmp.textContent = "500";
+  tmp.textContent = latemp;
 
 
   console.log("data reçu");

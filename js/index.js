@@ -24,12 +24,15 @@ socket.onmessage = (msg) => {
   if(msg.data.length > 0)
   {
     let capteurs = JSON.parse(msg.data);
+
     let ext = capteurs['capteurs'][1];
     let interieur = capteurs['capteurs'][2];
+    let latemp = ext['Valeur'];
+
     console.log(ext['Valeur']);
     let tmp = document.querySelectorAll(".temperature");
-    tmp.innerHTML = ext['Valeur'];
-    //console.log(interieur['Valeur']);
+    tmp.innerText = latemp;
+    console.log(interieur['Valeur']);
     console.log("data reçu");
   }
   else {

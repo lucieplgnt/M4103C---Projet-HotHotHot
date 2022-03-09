@@ -78,7 +78,36 @@ body.dark {
   align-items: center;
   justify-content: center;
   width: 45%;
-  background-color: black;
+  min-width: 130px;
+  background: transparent;
+  overflow: hidden;
+  position: relative;
+  display: inline-flex;
+  padding: 10px;
+  /* background: transparent;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  border: 2px ridge rgb(42, 42, 46); */
+}
+.menu1 span {
+  position: relative;
+  z-index: 1;
+}
+.menu1::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: #7604c2;
+  transition: width 0.5s, height 0.5s;
+}
+.menu1:hover::before {
+  width: 400px;
+  height: 400px;
 }
 .menu2 {
   color: white;
@@ -90,7 +119,32 @@ body.dark {
   align-items: center;
   justify-content: center;
   width: 45%;
-  background-color: blueviolet;
+  min-width: 130px;
+  background: transparent;
+  overflow: hidden;
+  position: relative;
+  display: inline-flex;
+  padding: 10px;
+}
+.menu2 span {
+  position: relative;
+  z-index: 1;
+}
+.menu2::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: #7604c2;
+  transition: width 0.5s, height 0.5s;
+}
+.menu2:hover::before {
+  width: 400px;
+  height: 400px;
 }
 .theme-content {
   display: flex;
@@ -222,7 +276,7 @@ body.dark {
   transform: translate(-50%, -50%);
   width: 90%;
   min-width: 300px;
-  height: 500px;
+  height: 700px;
   background: #f1f1f1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 40px;
@@ -297,10 +351,12 @@ body.dark {
 }
 .presentation {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  background-color: turquoise;
+  height: 100%;
+  width: 100%;
+  padding: 0 20px;
 }
 .equipe {
   height: 300px;
@@ -316,6 +372,13 @@ body.dark {
   align-items: center;
   justify-content: center;
 }
+/* .equipe:hover {
+  transform: rotateY(180deg);
+  transition: all 0.5s ease;
+}
+.equipe:hover h1 {
+  display: none;
+} */
 .outils {
   height: 300px;
   width: 20%;
@@ -354,7 +417,7 @@ body.dark {
   border-radius: 10px;
   color: white;
   margin-top: 10%;
-  margin-right: 5%;
+  margin-right: 0;
   background: rgba(51, 170, 51, 0.6);
   display: flex;
   flex-direction: column;

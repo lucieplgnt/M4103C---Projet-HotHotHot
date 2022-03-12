@@ -18,6 +18,132 @@ body.dark {
   transition: all 0.5s ease;
 }
 /*
+? boite de dialogue début
+*/
+.box {
+  z-index: 30;
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  transform: translate(-10%, -10%);
+}
+.notification {
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 30px;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.notification:hover {
+  background: #bb0a21;
+}
+.notification .bxs-bell {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  color: rgb(34, 33, 42);
+  line-height: 30px;
+  font-size: 30px;
+}
+.notification:hover .bxs-bell {
+  color: #fff;
+}
+.notification .num {
+  position: fixed;
+  top: 0;
+  right: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #bb0a21;
+  color: #fff;
+  line-height: 25px;
+  font-family: sans-serif;
+  text-align: center;
+}
+.notification.open {
+  width: 400px;
+  height: 60px;
+  text-align: left;
+  padding: 0 15px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background: #bb0a21;
+}
+.notification.open .bxs-bell {
+  color: #fff;
+}
+.notification.open .num {
+  position: fixed;
+  background: transparent;
+  color: rgb(34, 33, 42);
+  font-size: 24px;
+  left: 12%;
+  top: 30%;
+}
+.notification.open .num::after {
+  content: " - Notication";
+  position: fixed;
+  bottom: 30%;
+  left: 19%;
+}
+@media (max-width: 500px) {
+  .notification.open {
+    width: 200px;
+    height: 60px;
+    text-align: left;
+    padding: 0 15px;
+  }
+  .notification.open .num {
+    left: 21%;
+  }
+  .notification.open .num::after {
+    left: unset;
+  }
+}
+ul {
+  position: fixed;
+  right: 0.2px;
+  bottom: 60px;
+  margin: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  box-sizing: border-box;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  display: none;
+}
+.notification.open ul {
+  display: block;
+}
+ul li {
+  list-style: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  display: flex;
+}
+ul li:last-child {
+  border-bottom: none;
+}
+ul li .icon {
+  width: 24px;
+  height: 24px;
+  color: orange;
+  text-align: center;
+  margin-right: 15px;
+}
+ul li .text {
+  position: relative;
+  font-family: sans-serif;
+}
+/*
+? boite de dialogue fin
+*/
+/*
 ? menu début
 */
 .menu {
@@ -390,6 +516,7 @@ body.dark {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .equipe:hover .equipe-container-1 {
   transform: translateY(-100px);

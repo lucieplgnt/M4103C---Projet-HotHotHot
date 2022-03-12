@@ -1,3 +1,11 @@
+//Bouton notification - début
+let notif = document.querySelector(".notification");
+
+notif.onclick = function(){
+  notif.classList.toggle("open");
+}
+//Bouton notification - fin
+
 // activation du menu - début
 let btn = document.querySelector(".bx-menu");
 let menu = document.querySelector(".menu");

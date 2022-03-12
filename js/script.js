@@ -124,9 +124,10 @@ if(msg.data.length > 0)
   localStorage.setItem(temp[IndiceTemp], JSON.stringify(tabtemExt));
 
   tempJSON = localStorage.getItem(temp[IndiceTemp]);
-  tempp = tempJSON && JSON.Parse(tempJSON);
-  let histo = document.querySelector(".historique");
-  histo.textContent = tempp;
+/*   tempp = tempJSON && JSON.Parse(tempJSON);
+ */
+  let histor = document.querySelector(".historique");
+  histor.textContent = tempJSON;
   
   IndiceTemp = IndiceTemp + 1;
 

@@ -20,7 +20,7 @@ self.addEventListener('install', (e) => {
 
     e.waitUntil(
   
-      caches.open('M4103C---Projet-HotHotHot').then((cache) => cache.addAll([
+      caches.open(M4103C---Projet-HotHotHot).then((cache) => cache.addAll([
   
           "index.html",
   

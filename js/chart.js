@@ -1,7 +1,7 @@
-const ctx = document.getElementById('myChart').getContext('2d');
+/* const ctx = document.getElementById('myChart').getContext('2d');
 
 const myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
@@ -23,14 +23,21 @@ const myChart = new Chart(ctx, {
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 5
         }]
     },
     options: {
         scales: {
             y: {
+                suggestedMax: 30,
                 beginAtZero: true
+                
             }
-        }
+        },
+        title: {
+            text: "Evolution température",
+        },
     }
 });
+
+ */

@@ -26,7 +26,7 @@ self.addEventListener('install', (e) => {
   
           "js/script.js",
   
-          "service-worker.js",
+          "/service-worker.js",
 
           "style/style.css",
   

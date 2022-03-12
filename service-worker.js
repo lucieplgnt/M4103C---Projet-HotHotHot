@@ -22,7 +22,7 @@ self.addEventListener('install', (e) => {
   
       caches.open('M4103C---Projet-HotHotHot').then((cache) => cache.addAll([
   
-          "index.html",
+          "/index.html",
   
           "js/script.js",
   

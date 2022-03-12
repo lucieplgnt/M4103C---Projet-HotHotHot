@@ -372,10 +372,28 @@ body.dark {
   margin-top: 10%;
   margin-right: 5%;
   background: rgba(51, 170, 51, 0.6);
-  display: flex;
   flex-direction: column;
-  align-items: center;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+.equipe-container {
+  height: 300px;
+  width: 100%;
+  display: flex;
   justify-content: center;
+  align-items: center;
+}
+.equipe-container-1 {
+  height: 100px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.equipe:hover .equipe-container-1 {
+  transform: translateY(-100px);
+  transition: all 0.5s ease;
 }
 /* .equipe:hover {
   transform: rotateY(180deg);

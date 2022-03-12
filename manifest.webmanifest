@@ -1,12 +1,12 @@
 {
 
-    "name": "My Custom PWA",
+    "name": "KOTE Temperature",
 
-    "short_name": "Custom PWA",
+    "short_name": "KOTE",
 
-    "description": "An example of what can do a Progressive Web App.",
+    "description": "Affichage graphique ou non des températures récupérées par des capteurs",
 
-"start_url": "index.html",
+"start_url": "/M4103C---Projet-HotHotHot/index.html",
 
     "display": "fullscreen",
 
@@ -14,7 +14,7 @@
 
       {
 
-        "src": "images/rubik-256x256.png",
+        "src": "images/logo-256x256.png",
 
         "sizes": "256x256",
 
@@ -24,7 +24,7 @@
 
       {
 
-        "src": "images/rubik-128x128.png",
+        "src": "images/logo-128x128.png",
 
         "sizes": "128x128",
 

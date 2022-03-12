@@ -12,7 +12,7 @@
 
 */
 
-var CACHE = "HotHotHot"
+
 
 // Charger les ressources puis les mettre en cache
 
@@ -20,7 +20,7 @@ self.addEventListener('install', (e) => {
 
     e.waitUntil(
   
-      caches.open(CACHE).then((cache) => cache.addAll([
+      caches.open(KOTE).then((cache) => cache.addAll([
   
           "index.html",
   

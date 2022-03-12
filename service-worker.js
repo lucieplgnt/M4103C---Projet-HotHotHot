@@ -20,23 +20,21 @@ self.addEventListener('install', (e) => {
 
     e.waitUntil(
   
-      caches.open('enzo-vargas83.github.io/M4103C---Projet-HotHotHot/').then((cache) => cache.addAll([
+      caches.open(KOTE).then((cache) => cache.addAll([
   
-        "index.html",
-
-        "js/script.js",
-
-        "service-worker.js",
-
-        "style/style.css",
-
-        "images/pikachu.png",
-
-        "images/kakashi.png"
+          "index.html",
   
-  // ... ajouter les autres ressources à mettre en cache
+          "js/script.js",
   
-      ])), // à adapter à l'URL du projet
+          "service-worker.js",
+
+          "style/style.css",
+  
+          "images/logo-128x128.png",
+
+          "images/logo-256x256.png"
+  
+      ])),
   
     );
   

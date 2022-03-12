@@ -81,7 +81,7 @@ if ('serviceWorker' in navigator) {
 
   navigator.serviceWorker
 
-    .register('/M4103C---Projet-HotHotHot//service-worker.js') // à adapter à l'URL du projet
+    .register('/M4103C---Projet-HotHotHot/service-worker.js') // à adapter à l'URL du projet
 
     .then(() => { console.log('Service Worker Registered'); });
 
@@ -93,6 +93,7 @@ if ('serviceWorker' in navigator) {
 var socket = new WebSocket('wss://ws.hothothot.dog:9502'); 
 /* var socket = new WebSocket('ws://localhost:8100'); */
 
+IndiceTemp = 0;
 socket.onopen = () => {
   socket.send("Connexion open");
 };
@@ -107,7 +108,8 @@ if(msg.data.length > 0)
 
   let ext = capteurs['capteurs'][1];
   let interieur = capteurs['capteurs'][0];
-  let latempExt = "Température extérieur : " + ext['Valeur'];
+  var tempext = ext['Valeur'];
+  let latempExt = "Température extérieur : " + tempext;
   let latempInt = "Température intérieur : " + interieur['Valeur'];
 
   console.log(latempExt);
@@ -118,7 +120,16 @@ if(msg.data.length > 0)
   let tmp2 = document.querySelector(".temperature2");
   tmp2.textContent= latempInt;
 
-  console.log("data reçu");
+  var tabtemExt = {tempext} 
+  localStorage.setItem(temp[IndiceTemp], JSON.stringify(tabtemExt));
+  IndiceTemp = IndiceTemp + 1;
+
+  tempJSON = localStorage.getItem(temp[IndiceTemp]);
+  tempp = tempJSON && JSON.Parse(tempJSON);
+  let histo = document.querySelector(".historique");
+  histo.textContent = tempp;
+
+  console.log("data bien reçu");
 }
 else {
   console.log("changement de connection");

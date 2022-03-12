@@ -81,7 +81,7 @@ if ('serviceWorker' in navigator) {
 
   navigator.serviceWorker
 
-    .register(/M4103C---Projet-HotHotHot/service-worker.js) // à adapter à l'URL du projet
+    .register('/M4103C---Projet-HotHotHot/service-worker.js') // à adapter à l'URL du projet
 
     .then(() => { console.log('Service Worker Registered'); });
 
@@ -122,13 +122,12 @@ if(msg.data.length > 0)
 
   var tabtemExt = {tempext} 
   localStorage.setItem(temp[IndiceTemp], JSON.stringify(tabtemExt));
+  IndiceTemp = IndiceTemp + 1;
 
   tempJSON = localStorage.getItem(temp[IndiceTemp]);
   tempp = tempJSON && JSON.Parse(tempJSON);
   let histo = document.querySelector(".historique");
   histo.textContent = tempp;
-  
-  IndiceTemp = IndiceTemp + 1;
 
   console.log("data bien reçu");
 }

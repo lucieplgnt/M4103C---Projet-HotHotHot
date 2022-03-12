@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="manifest" href="manifest.webmanifest">
     <title>Document</title>
 </head>
 <body class="dark">
@@ -48,12 +49,15 @@
                 <h3>Lorem ipsum dolor sit amet. 1</h3>
                 <hr>
                 <p class="temperature">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur perspiciatis alias quod, dolores eum illum doloremque assumenda odio architecto, dolorum vitae nobis, quo deleniti ipsum.</p>
+                <p class="temperature">Connexion en cours - Chargement</p>
+                <p class="temperature2">Connexion en cours - Chargement</p>
+                <p class="historique">historique en Chargement !!</p>
             </div>
         
             <div class="contenu" data-block="2">
-                <h3>Lorem ipsum dolor sit amet. 2</h3>
-                <hr>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur perspiciatis alias quod, dolores eum illum doloremque assumenda odio architecto, dolorum vitae nobis, quo deleniti ipsum.</p>
+                <div class="graphique">
+                    <canvas id="myChart"></canvas>
+                </div>
             </div>
         </div>
     </section>
@@ -88,6 +92,11 @@
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="js/chart.js"></script>
+
     <script src="js/script.js"></script>
+
 </body>
 </html>

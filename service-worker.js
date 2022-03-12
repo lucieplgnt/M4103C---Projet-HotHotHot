@@ -20,17 +20,21 @@ self.addEventListener('install', (e) => {
 
     e.waitUntil(
   
-      caches.open('my-custom-pwa').then((cache) => cache.addAll([
+      caches.open(M4103C---Projet-HotHotHot).then((cache) => cache.addAll([
   
           "index.html",
   
-          "scripts/main.js",
+          "js/script.js",
   
-          "sw.js",
+          "service-worker.js",
+
+          "style/style.css",
   
-  // ... ajouter les autres ressources à mettre en cache
+          "images/logo-128x128.png",
+
+          "images/logo-256x256.png"
   
-      ])), // à adapter à l'URL du projet
+      ])),
   
     );
   

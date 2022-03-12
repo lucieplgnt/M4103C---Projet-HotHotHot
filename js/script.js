@@ -129,7 +129,7 @@ if(msg.data.length > 0)
   let histo = document.querySelector(".historique");
   histo.textContent = tempp;
 
-  console.log("data reçu");
+  console.log("data bien reçu");
 }
 else {
   console.log("changement de connection");

@@ -10,8 +10,8 @@ body.light {
   transition: all 0.5s ease;
 }
 .sec1 {
-    height: 100vh;
-    width: 100%;
+  height: 100vh;
+  width: 100%;
 }
 body.dark {
   background-color: rgb(34, 33, 42);
@@ -103,7 +103,7 @@ body.dark {
     left: unset;
   }
 }
-ul {
+.liste-1 {
   position: fixed;
   right: 0.2px;
   bottom: 60px;
@@ -120,23 +120,23 @@ ul {
 .notification.open ul {
   display: block;
 }
-ul li {
+.liste-1 li {
   list-style: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 8px 0;
   display: flex;
 }
-ul li:last-child {
+.liste-1 li:last-child {
   border-bottom: none;
 }
-ul li .icon {
+.liste-1 li .icon {
   width: 24px;
   height: 24px;
   color: orange;
   text-align: center;
   margin-right: 15px;
 }
-ul li .text {
+.liste-1 li .text {
   position: relative;
   font-family: sans-serif;
 }
@@ -508,6 +508,7 @@ ul li .text {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.5s ease;
 }
 .equipe-container-1 {
   height: 100px;
@@ -517,18 +518,16 @@ ul li .text {
   justify-content: center;
   align-items: center;
   text-align: center;
+  transition: all 0.5s ease;
 }
 .equipe:hover .equipe-container-1 {
   transform: translateY(-100px);
   transition: all 0.5s ease;
 }
-/* .equipe:hover {
-  transform: rotateY(180deg);
+.equipe:hover .equipe-container {
+  transform: translateY(-50px);
   transition: all 0.5s ease;
 }
-.equipe:hover h1 {
-  display: none;
-} */
 .outils {
   height: 300px;
   width: 20%;
@@ -538,10 +537,33 @@ ul li .text {
   margin-top: 10%;
   margin-right: 5%;
   background: rgba(51, 170, 51, 0.6);
+  overflow: hidden;
+}
+.outils-container {
+  height: 300px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+.outils-container-1 {
+  height: 100px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+.outils:hover .outils-container-1 {
+  transform: translateY(-100px);
+  transition: all 0.5s ease;
+}
+.outils:hover .outils-container {
+  transform: translateY(-50px);
+  transition: all 0.5s ease;
 }
 .difficulte {
   height: 300px;
@@ -552,13 +574,36 @@ ul li .text {
   margin-top: 10%;
   margin-right: 5%;
   background: rgba(51, 170, 51, 0.6);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
-.difficulte .titre1 {
+/* .difficulte .titre1 {
   font-size: 1.25em;
+} */
+.difficulte-container {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+.difficulte-container-1 {
+  height: 100px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+.difficulte:hover .difficulte-container-1 {
+  transform: translateY(-100px);
+  transition: all 0.5s ease;
+}
+.difficulte:hover .difficulte-container {
+  transform: translateY(-50px);
+  transition: all 0.5s ease;
 }
 .change {
   height: 300px;
@@ -569,10 +614,33 @@ ul li .text {
   margin-top: 10%;
   margin-right: 0;
   background: rgba(51, 170, 51, 0.6);
+  overflow: hidden;
+}
+.change-container {
+  height: 300px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+.change-container-1 {
+  height: 100px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+.change:hover .change-container-1 {
+  transform: translateY(-100px);
+  transition: all 0.5s ease;
+}
+.change:hover .change-container {
+  transform: translateY(-50px);
+  transition: all 0.5s ease;
 }
 /*
 ! section 2 fin
@@ -633,7 +701,7 @@ ul li .text {
   color: #252627;
 }
 
-.myChart{
+.myChart {
   width: 20%;
   display: flex;
 }

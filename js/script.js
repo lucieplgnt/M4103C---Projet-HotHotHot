@@ -89,9 +89,9 @@ if ('serviceWorker' in navigator) {
 
   navigator.serviceWorker
 
-    .register(/M4103C---Projet-HotHotHot/service-worker.js) // à adapter à l'URL du projet
+  .register('/M4103C---Projet-HotHotHot/service-worker.js') // à adapter à l'URL du projet
 
-    .then(() => { console.log('Service Worker Registered'); });
+  .then(() => { console.log('Service Worker Registered'); });
 
 }
 
@@ -132,9 +132,10 @@ if(msg.data.length > 0)
   localStorage.setItem(temp[IndiceTemp], JSON.stringify(tabtemExt));
 
   tempJSON = localStorage.getItem(temp[IndiceTemp]);
-  tempp = tempJSON && JSON.Parse(tempJSON);
-  let histo = document.querySelector(".historique");
-  histo.textContent = tempp;
+/*   tempp = tempJSON && JSON.Parse(tempJSON);
+ */
+  let histor = document.querySelector(".historique");
+  histor.textContent = tempJSON;
   
   IndiceTemp = IndiceTemp + 1;
 
@@ -144,20 +145,20 @@ else {
   console.log("changement de connection");
   fetch("https://hothothot.dog/api/capteurs/",
 {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method: "POST",
-    body: JSON.stringify({param1: 'valeur'})
-    })
-    .then(function(response){
-      return response.json.then(function(O_json){
-      });
-    })
-    .catch(function(){
-
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  method: "POST",
+  body: JSON.stringify({param1: 'valeur'})
+  })
+  .then(function(response){
+    return response.json.then(function(O_json){
     });
+  })
+  .catch(function(){
+
+  });
 };
 }
 
@@ -165,20 +166,20 @@ else {
 socket.onerror = function(response) {
 fetch("https://hothothot.dog/api/capteurs/exterieur",
 {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method: "POST",
-    body: JSON.stringify({param1: 'valeur'})
-    })
-    .then(function(response){
-      return response.json.then(function(O_json){
-      });
-    })
-    .catch(function(){
-
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  method: "POST",
+  body: JSON.stringify({param1: 'valeur'})
+  })
+  .then(function(response){
+    return response.json.then(function(O_json){
     });
+  })
+  .catch(function(){
+
+  });
 };
 
 console.log();

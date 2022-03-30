@@ -6,7 +6,7 @@
 
     "description": "Affichage graphique ou non des températures récupérées par des capteurs",
 
-"start_url": "/M4103C---Projet-HotHotHot/index.html",
+"start_url": "/?source=pwa",
 
     "display": "fullscreen",
 
@@ -17,16 +17,6 @@
         "src": "images/kakashi.png",
 
         "sizes": "256x256",
-
-        "type": "image/png"
-
-      },
-
-      {
-
-        "src": "images/pikachu.png",
-
-        "sizes": "128x128",
 
         "type": "image/png"
 

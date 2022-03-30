@@ -32,7 +32,6 @@ self.addEventListener('install', (e) => {
   
           "images/logo-128x128.png",
 
-          "images/logo-256x256.png"
   
       ])),
   

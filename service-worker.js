@@ -29,15 +29,17 @@ self.addEventListener('install', (e) => {
   
           "/index.html",
   
-          "js/script.js",
+          "/js/script.js",
   
           "/service-worker.js",
 
-          "style/style.css",
+          "/style/style.css",
   
-          "images/pikachu.png",
+          "/images/pikachu.png",
           
-          "images/kakashi.png"
+          "/images/kakashi.png",
+          
+          "/images/logoTrash.png"
 
       ])),
   

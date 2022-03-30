@@ -30,9 +30,10 @@ self.addEventListener('install', (e) => {
 
           "style/style.css",
   
-          "images/logo-128x128.png",
+          "images/pikachu.png",
+          
+          "images/kakashi.png"
 
-  
       ])),
   
     );

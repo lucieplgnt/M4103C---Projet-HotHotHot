@@ -2,7 +2,7 @@
     "name": "KOTE-Temperature",
     "short_name": "KOTE",
     "description": "Affichage graphique ou non des températures récupérées par des capteurs",
-    "start_url": "/?source=pwa",
+    "start_url": "/KOTE-Temperature.fr/index.html",
     "scope": "/",
     "display": "fullscreen",
     "icons": [

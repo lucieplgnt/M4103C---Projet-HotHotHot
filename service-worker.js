@@ -1,4 +1,4 @@
-var CACHE_NAME = "enzo-vargas83.github.io/M4103C---Projet-HotHotHot";
+var CACHE_NAME = "M4103C---Projet-HotHotHot";
 var urlCache = [
     "/",
     "/index.html",  

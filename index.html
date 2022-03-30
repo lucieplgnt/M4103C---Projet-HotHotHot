@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,33 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="manifest" href="manifest.webmanifest">
-    <title>Document</title>
+    <title>Hot-Hot-Hot</title>
 </head>
 <body class="dark">
-    <div class="box">
-        <div class="notification">
-            <i class='bx bxs-bell'></i>
-            <span class="num">4 </span>
-            <ul>
-                <li>
-                    <span class="icon"><i class='bx bx-error'></i></span>
-                    <span class="text">Lorem ipsum dolor sit,</span>
-                </li>
-                <li>
-                    <span class="icon"><i class='bx bx-error'></i></span>
-                    <span class="text">Lorem ipsum dolor sit,</span>
-                </li>
-                <li>
-                    <span class="icon"><i class='bx bx-error'></i></span>
-                    <span class="text">Lorem ipsum dolor sit,</span>
-                </li>
-                <li>
-                    <span class="icon"><i class='bx bx-error'></i></span>
-                    <span class="text">Lorem ipsum dolor sit,</span>
-                </li>
-            </ul>
-        </div>
-    </div>
     <div class="menu">
         <div class="close-menu">
             <div class="menu-content">
@@ -61,7 +37,38 @@
             </div>
         </div>
     </div>
+
+    <div> <!-- remonter -->
+        <a href="#sec1" class="remonter"><i class='bx bxs-chevrons-up'></i></a>
+    </div>
     
+    <div class="box">
+        <div class="notification">
+            <i class='bx bxs-bell'></i>
+            <span class="num" id="num">4</span>
+            <!-- <span class="notif">- notifications</span>
+            <span class="notif-1">- notifs</span> -->
+            <ul class="liste-1">
+                <li>
+                    <span class="icon" id="icon-1"><i class='bx bx-error'></i></span>
+                    <span class="text">il fait chaud, attention !</span>
+                </li>
+                <li>
+                    <span class="icon" id="icon-2"><i class='bx bx-error'></i></span>
+                    <span class="text">couvrez vous, il fait froid</span>
+                </li>
+                <li>
+                    <span class="icon" id="icon-3"><i class='bx bx-error'></i></span>
+                    <span class="text">oubliez pas votre veste !</span>
+                </li>
+                <li>
+                    <span class="icon" id="icon-4"><i class='bx bx-error'></i></span>
+                    <span class="text">hydratez vous, il fait chaud</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <section class="sec1" id="sec1">
         <div class="container">
             <div class="container-onglets">
@@ -101,16 +108,28 @@
                 </div>
             </div>
             <div class="outils">
-                <h1 class="titre1">Organisation et outils</h1>
-                <p class="p1">lien pour le Git Hub</p>
+                <div class="outils-container">
+                    <h1 class="titre1">Organisation et outils</h1>
+                </div>
+                <div class="outils-container-1">
+                    <p class="p1">lien pour le Git Hub</p>
+                </div>
             </div>
             <div class="difficulte">
-                <h1 class="titre1">2 principales difficultés rencontrées</h1>
-                <p class="p1">bla bla</p>
+                <div class="difficulte-container">
+                    <h1 class="titre1">Difficultés rencontrées</h1>
+                </div>
+                <div class="difficulte-container-1">
+                    <p class="p1">bla bla</p>
+                </div>
             </div>
             <div class="change">
-                <h1 class="titre1">Que changerions nous ?</h1>
-                <p class="p1">changements</p>
+                <div class="change-container">
+                    <h1 class="titre1">Que changerions nous ?</h1>
+                </div>
+                <div class="change-container-1">
+                    <p class="p1">changements</p>
+                </div>
             </div>
         </div>
     </section>

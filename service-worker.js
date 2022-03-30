@@ -87,14 +87,14 @@ self.addEventListener('fetch', function (event) {
   
   // sinon, récupérer depuis le serveur en ligne (online)
   
-  self.addEventListener('fetch', (e) => {
+//   self.addEventListener('fetch', (e) => {
   
-    e.respondWith(
+//     e.respondWith(
   
-      caches.match(e.request).then((response) => response || fetch(e.request)),
+//       caches.match(e.request).then((response) => response || fetch(e.request)),
   
-    );
+//     );
   
-  });
+//   });
   
   

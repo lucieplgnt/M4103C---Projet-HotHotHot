@@ -7,8 +7,8 @@
     "display": "fullscreen",
     "icons": [
       {
-        "src": "images/pikachu.png",
-        "sizes": "128.128",
+        "src": "img/logoTrash.png",
+        "sizes": "512x512",
         "type": "image/png"
       }
     ],

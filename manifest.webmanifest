@@ -1,40 +1,17 @@
 {
-
-    "name": "KOTE Temperature",
-
+    "name": "KOTE-Temperature",
     "short_name": "KOTE",
-
     "description": "Affichage graphique ou non des températures récupérées par des capteurs",
-
-"start_url": "/M4103C---Projet-HotHotHot/index.html",
-
+    "start_url": "/?source=pwa",
+    "scope": "/",
     "display": "fullscreen",
-
     "icons": [
-
       {
-
-        "src": "images/logo-256x256.png",
-
-        "sizes": "256x256",
-
+        "src": "images/logoTrash.png",
+        "sizes": "512x512",
         "type": "image/png"
-
-      },
-
-      {
-
-        "src": "images/logo-128x128.png",
-
-        "sizes": "128x128",
-
-        "type": "image/png"
-
       }
-
     ],
-
-"background_color": "grey"
-
+    "background_color": "grey"
 }
 

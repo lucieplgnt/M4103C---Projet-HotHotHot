@@ -91,6 +91,8 @@ if ('serviceWorker' in navigator) {
 
   .register('/M4103C---Projet-HotHotHot/service-worker.js') // à adapter à l'URL du projet
 
+  .register('M4103C---Projet-HotHotHot/service-worker.js') // à adapter à l'URL du projet
+
   .then(() => { console.log('Service Worker Registered'); });
 
 }

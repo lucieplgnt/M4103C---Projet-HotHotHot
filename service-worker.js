@@ -2,11 +2,11 @@ var CACHE_NAME = 'M4103C---Projet-HotHotHot';
 var urlCache = [
     "/",
     "/index.html",  
-    "js/script.js",
+    "/js/script.js",
     "/service-worker.js",
-    "style/style.css",
-    "images/pikachu.png",   
-    "images/kakashi.png"
+    "/style/style.css",
+    "/images/pikachu.png",   
+    "/images/kakashi.png"
 ];
 
 

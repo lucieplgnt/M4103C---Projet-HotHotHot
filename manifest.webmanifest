@@ -12,7 +12,6 @@
         "type": "image/png"
       }
     ],
-    "background_color": "grey",
-    "orientation": "landscape"
+    "background_color": "grey"
 }
 

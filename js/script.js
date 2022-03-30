@@ -117,8 +117,8 @@ if(msg.data.length > 0)
   let ext = capteurs['capteurs'][1];
   let interieur = capteurs['capteurs'][0];
   var tempext = ext['Valeur'];
-  let latempExt = "Température extérieur : " + tempext;
-  let latempInt = "Température intérieur : " + interieur['Valeur'];
+  let latempExt = "Température extérieure : " + tempext;
+  let latempInt = "Température intérieure : " + interieur['Valeur'];
 
   console.log(latempExt);
   console.log(latempInt);

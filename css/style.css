@@ -525,6 +525,14 @@ body.dark {
     opacity: 1;
   }
 }
+/* .temperature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 200px;
+  background-color: #7604c2;
+} */
 /*
 ! section 1 fin
 */

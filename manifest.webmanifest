@@ -14,9 +14,9 @@
 
       {
 
-        "src": "images/kakashi.png",
+        "src": "images/pikachu.png",
 
-        "sizes": "256x256",
+        "sizes": "128.128",
 
         "type": "image/png"
 

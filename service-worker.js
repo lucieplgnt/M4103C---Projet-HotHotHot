@@ -6,7 +6,7 @@ var urlCache = [
     "/service-worker.js",
     "/style/style.css",
     "/images/pikachu.png",   
-    "/images/kakashi.png"
+    "/images/logoTrash.png"
 ];
 
 

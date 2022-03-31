@@ -1,8 +1,22 @@
 //Bouton notification - début
-let notif = document.querySelector(".notification");
+let notification = document.querySelector(".notification");
+let notif = document.querySelector(".notif");
+let notif1 = document.querySelector(".notif-1");
 
-notif.onclick = function(){
-  notif.classList.toggle("open");
+notification.onclick = function(){
+  notification.classList.toggle("open");
+  
+  /* if(notif.contains('notif-active')) {
+    notif.classList.remove("notif-active");
+    notif.classList.add("notif");
+    notif1.classList.remove("notif-1-active");
+    notif1.classList.add("notif-1");
+  }
+
+  notif.classList.add("notif-active");
+  notif.classList.remove("notif");
+  notif1.classList.add("notif-1-active");
+  notif1.classList.remove("notif-1"); */
 }
 //Bouton notification - fin
 
@@ -131,60 +145,59 @@ socket.onopen = () => {
 };
 
 socket.onmessage = (msg) => {
-console.log("Received: "+msg.data.length);
-/* ajouter recup temp */
-if(msg.data.length > 0)
-{
-  let capteurs = JSON.parse(msg.data);
+  console.log("Received: "+msg.data.length);
+  /* ajouter recup temp */
+  if(msg.data.length > 0)
+  {
+    let capteurs = JSON.parse(msg.data);
 
-  let ext = capteurs['capteurs'][1];
-  let interieur = capteurs['capteurs'][0];
-  var tempext = ext['Valeur'];
-  let latempExt = "Température extérieure : " + tempext;
-  let latempInt = "Température intérieure : " + interieur['Valeur'];
+    let ext = capteurs['capteurs'][1];
+    let interieur = capteurs['capteurs'][0];
+    var tempext = ext['Valeur'];
+    let latempExt = "Température extérieure : " + tempext;
+    let latempInt = "Température intérieure : " + interieur['Valeur'];
 
-  console.log(latempExt);
-  console.log(latempInt);
+    console.log(latempExt);
+    console.log(latempInt);
 
-  let tmp = document.querySelector(".temperature");
-  tmp.textContent = latempExt;
-  let tmp2 = document.querySelector(".temperature2");
-  tmp2.textContent= latempInt;
+    let tmp = document.querySelector(".temperature");
+    tmp.textContent = latempExt;
+    let tmp2 = document.querySelector(".temperature2");
+    tmp2.textContent= latempInt;
 
-  var tabtemExt = {tempext} 
-  localStorage.setItem(temp[IndiceTemp], JSON.stringify(tabtemExt));
+    var tabtemExt = {tempext} 
+    localStorage.setItem(temp[IndiceTemp], JSON.stringify(tabtemExt));
 
-  tempJSON = localStorage.getItem(temp[IndiceTemp]);
-/*   tempp = tempJSON && JSON.Parse(tempJSON);
- */
-  let histor = document.querySelector(".historique");
-  histor.textContent = tempJSON;
-  
-  IndiceTemp = IndiceTemp + 1;
+    tempJSON = localStorage.getItem(temp[IndiceTemp]);
+  /*   tempp = tempJSON && JSON.Parse(tempJSON);
+  */
+    let histor = document.querySelector(".historique");
+    histor.textContent = tempJSON;
+    
+    IndiceTemp = IndiceTemp + 1;
 
-  console.log("data bien reçu");
-}
-else {
-  console.log("changement de connection");
-  fetch("https://hothothot.dog/api/capteurs/",
-{
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  },
-  method: "POST",
-  body: JSON.stringify({param1: 'valeur'})
-  })
-  .then(function(response){
-    return response.json.then(function(O_json){
+    console.log("data bien reçu");
+  }
+  else {
+    console.log("changement de connection");
+    fetch("https://hothothot.dog/api/capteurs/",
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({param1: 'valeur'})
+    })
+    .then(function(response){
+      return response.json.then(function(O_json){
+      });
+    })
+    .catch(function(){
+
     });
-  })
-  .catch(function(){
-
-  });
-};
+  };
 }
-
 
 socket.onerror = function(response) {
 fetch("https://hothothot.dog/api/capteurs/exterieur",
@@ -206,3 +219,36 @@ fetch("https://hothothot.dog/api/capteurs/exterieur",
 };
 
 console.log();
+
+
+
+socket.onmessage = (msg) => {
+  console.log("Received: "+msg.data.length);
+  if(msg.data.length > 0) {
+    let LesCapteurs = JSON.parse(msg.data);
+    
+    let exter = LesCapteurs['LesCapteurs'][1];
+    let inter = LesCapteurs['LesCapteurs'][0];
+    var temperatureExt = exter['Valeur'];
+    var temperatureInt = inter['Valeur'];
+    const TExt = Array.from(temperatureExt);
+    const TInt = Array.from(temperatureInt);
+    
+    TExt.forEach(temperatureExt => {
+      if (temperatureExt > 17) {
+        console.log("fait chaud !");
+      }
+      else {
+        return;
+      }
+    })
+    TInt.forEach(temperatureInt => {
+      if (temperatureInt > 17) {
+        console.log("wesh le glaçon !");
+      }
+      else {
+        return;
+      }
+    })
+  }
+}

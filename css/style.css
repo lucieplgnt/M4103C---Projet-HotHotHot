@@ -32,6 +32,10 @@ body.dark {
   outline: none;
   text-decoration: none;
 }
+/* body.light .remonter {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #ff0606;
+} */
 .remonter:hover {
   background-color: rgba(255, 255, 255, 0.7);
 }
@@ -100,6 +104,7 @@ body.dark {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   background: #bb0a21;
+  overflow: hidden;
 }
 .notification.open .bxs-bell {
   color: #fff;
@@ -123,10 +128,6 @@ body.dark {
   color: #f1f1f1;
 }
 @media (max-width: 600px) {
-  /* .box {
-    bottom: 50px;
-    right: 20px;
-  } */
   .notification.open {
     width: 200px;
     height: 60px;
@@ -137,10 +138,8 @@ body.dark {
     left: 21%;
   }
   .notification.open .num::after {
-    left: unset;
-  }
-  .notification.open .num::after {
-    content: " Notifs";
+    left: 35%;
+    content: " - Notifs";
   }
 }
 .liste-1 {

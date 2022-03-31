@@ -2,7 +2,7 @@
     "name": "KOTE-Temperature",
     "short_name": "KOTE",
     "description": "Affichage graphique ou non des températures récupérées par des capteurs",
-    "start_url": "/index.html",
+    "start_url": "M4103C---Projet-HotHotHot//index.html",
     "scope": "/",
     "display": "fullscreen",
     "icons": [

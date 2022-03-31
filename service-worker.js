@@ -1,4 +1,3 @@
-var CACHE_NAME = "M4103C---Projet-HotHotHot";
 var urlCache = [
     "/index.html",  
     "/js/script.js",
@@ -13,7 +12,7 @@ var urlCache = [
 // Charger les ressources puis les mettre en cache
 self.addEventListener('install', (e) => {
     e.waitUntil(
-        caches.open(CACHE_NAME).then(function (cache) {
+        caches.open('M4103C---Projet-HotHotHot').then(function (cache) {
             console.log("Cashe Opened");
             return cache.addAll(urlCache);
         })
@@ -71,7 +70,7 @@ self.addEventListener('fetch', function (event) {
                         // IMPORTANT: Même constat qu'au dessus, mais pour la mettre en cache
                         var responseToCache = response.clone();
 
-                        caches.open(CACHE_NAME)
+                        caches.open('M4103C---Projet-HotHotHot')
                             .then(function (cache) {
                                 cache.put(event.request, responseToCache);
                             });

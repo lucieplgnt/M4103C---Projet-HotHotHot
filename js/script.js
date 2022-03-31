@@ -113,9 +113,7 @@ element.forEach(elements => {
 
 if ('serviceWorker' in navigator) {
 
-  navigator.serviceWorker
-
-  .register('/M4103C---Projet-HotHotHot/service-worker.js') // à adapter à l'URL du projet
+  navigator.serviceWorker.register('/M4103C---Projet-HotHotHot/service-worker.js') // à adapter à l'URL du projet
 
   .then(() => { console.log('Service Worker Registered'); });
 
@@ -142,18 +140,8 @@ if(msg.data.length > 0)
   let ext = capteurs['capteurs'][1];
   let interieur = capteurs['capteurs'][0];
   var tempext = ext['Valeur'];
-  var tempint = interieur['Valeur'];
   let latempExt = "Température extérieure : " + tempext;
-  let latempInt = "Température intérieure : " + tempint;
-
-  if (tempint < 11) {
-    element.classList.remove("element-liste");
-    element.classList.add("element-liste-active");
-  }
-  if (tempext > 17) {
-    element.classList.remove("element-liste");
-    element.classList.add("element-liste-active");
-  }
+  let latempInt = "Température intérieure : " + interieur['Valeur'];
 
   console.log(latempExt);
   console.log(latempInt);
@@ -218,8 +206,3 @@ fetch("https://hothothot.dog/api/capteurs/exterieur",
 };
 
 console.log();
-
-
-// notification - début
-
-// notification - fin

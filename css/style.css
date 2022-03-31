@@ -157,18 +157,23 @@ body.dark {
   border-top-right-radius: 30px;
   display: none;
   overflow: hidden;
+  cursor: auto;
 }
 .notification.open ul {
   display: block;
 }
-.liste-1 li {
+.element-liste {
+  cursor: pointer;
+  display: none;
+}
+.element-liste-active {
   list-style: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 8px 0;
-  display: flex;
   max-height: 35px;
   margin-bottom: 20px;
   border-radius: 20px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -515,7 +520,7 @@ body.dark {
   transition: all 0.3s ease;
 }
 .activeContenu {
-  animation: fade 0.5s forwards;
+  animation: fade 0.5s forwards;;
 }
 @keyframes fade {
   from {
@@ -764,7 +769,6 @@ body.dark {
   padding: 20px;
   color: #252627;
 }
-
 .myChart {
   width: 20%;
   display: flex;
@@ -777,7 +781,6 @@ body.dark {
   color: #f1f1f1;
   transition: all 0.3s ease;
 }
-
 .activeContenu {
   animation: fade 0.5s forwards;
 }

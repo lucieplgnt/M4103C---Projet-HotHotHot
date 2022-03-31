@@ -35,17 +35,17 @@ let section = document.querySelector("body");
 let sun = document.querySelector(".bx-sun");
 
 sun.addEventListener("click" , () =>{
-    if(section.classList.contains('dark')){
-        section.classList.add("light");
-        section.classList.remove("dark");
-        sun.classList.remove("bx-sun");
-        sun.classList.add("bx-moon");
-    } else if(section.classList.contains('light')){
-        section.classList.add("dark");
-        section.classList.remove("light");
-        sun.classList.add("bx-sun");
-        sun.classList.remove("bx-moon");
-    }
+  if(section.classList.contains('dark')){
+    section.classList.add("light");
+    section.classList.remove("dark");
+    sun.classList.remove("bx-sun");
+    sun.classList.add("bx-moon");
+  } else if(section.classList.contains('light')){
+    section.classList.add("dark");
+    section.classList.remove("light");
+    sun.classList.add("bx-sun");
+    sun.classList.remove("bx-moon");
+  }
 });
 // thème - fin
 
@@ -82,8 +82,34 @@ onglets.forEach(onglet => {
     }
   })
 })
-// anglets - fin
 
+let element = Array.from(document.querySelectorAll(".element-liste"));
+
+element.forEach(elements => {
+  elements.addEventListener("click" , () =>{
+    if (onglet.classList.contains('active')){
+      return;
+    } else {
+      onglet.classList.add('active');
+    }
+    index = 2;
+    for (i = 0; i < onglets.length; i++) {
+  
+      if (onglets[i].getAttribute('data-block') != index) {
+        onglets[i].classList.remove('active');
+      }
+    }
+  
+    for (j = 0; j < contenu.length; j++){
+      if (contenu[j].getAttribute('data-block') == index) {
+        contenu[j].classList.add('activeContenu');
+      } else {
+        contenu[j].classList.remove('activeContenu');
+      }
+    }
+  });
+})
+// anglets - fin
 
 if ('serviceWorker' in navigator) {
 
@@ -117,8 +143,9 @@ if(msg.data.length > 0)
   let ext = capteurs['capteurs'][1];
   let interieur = capteurs['capteurs'][0];
   var tempext = ext['Valeur'];
+  var tempint = interieur['Valeur'];
   let latempExt = "Température extérieure : " + tempext;
-  let latempInt = "Température intérieure : " + interieur['Valeur'];
+  let latempInt = "Température intérieure : " + tempint;
 
   console.log(latempExt);
   console.log(latempInt);
@@ -183,3 +210,8 @@ fetch("https://hothothot.dog/api/capteurs/exterieur",
 };
 
 console.log();
+
+
+// notification - début
+
+// notification - fin

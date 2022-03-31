@@ -5,7 +5,7 @@
     "start_url": "/M4103C---Projet-HotHotHot/index.html",
     "id": "/M4103C---Projet-HotHotHot/index.html",
     "scope": "/",
-    "display": "fullscreen",
+    "display": "standalone",
     "icons": [
       {
         "src": "images/logoTrash.png",

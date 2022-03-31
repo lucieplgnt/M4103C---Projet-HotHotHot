@@ -132,7 +132,6 @@ socket.onopen = () => {
   socket.send("Connexion open");
 };
 
-
 socket.onmessage = (msg) => {
 console.log("Received: "+msg.data.length);
 /* ajouter recup temp */
@@ -146,6 +145,15 @@ if(msg.data.length > 0)
   var tempint = interieur['Valeur'];
   let latempExt = "Température extérieure : " + tempext;
   let latempInt = "Température intérieure : " + tempint;
+
+  if (tempint < 11) {
+    element.classList.remove("element-liste");
+    element.classList.add("element-liste-active");
+  }
+  if (tempext > 17) {
+    element.classList.remove("element-liste");
+    element.classList.add("element-liste-active");
+  }
 
   console.log(latempExt);
   console.log(latempInt);

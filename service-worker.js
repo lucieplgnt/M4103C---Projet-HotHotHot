@@ -1,13 +1,13 @@
 var urlCache = [
-    "/",
-    "/index.html",  
-    "/js/script.js",
-    "/js/chart.js",
-    "/service-worker.js",
-    "/style/style.css",
-    "/images/pikachu.png",
-    "/images/kakashi.png",
-    "/images/logoTrash.png"
+    "/M4103C---Projet-HotHotHot",
+    "/M4103C---Projet-HotHotHot/index.html",  
+    "/M4103C---Projet-HotHotHot/js/script.js",
+    "/M4103C---Projet-HotHotHot/js/chart.js",
+    "/M4103C---Projet-HotHotHot/service-worker.js",
+    "/M4103C---Projet-HotHotHot/style/style.css",
+    "/M4103C---Projet-HotHotHot/images/pikachu.png",
+    "/M4103C---Projet-HotHotHot/images/kakashi.png",
+    "/M4103C---Projet-HotHotHot/images/logoTrash.png"
 ];
 
 

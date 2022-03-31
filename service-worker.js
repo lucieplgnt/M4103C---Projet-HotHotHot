@@ -1,6 +1,5 @@
 var CACHE_NAME = "M4103C---Projet-HotHotHot";
 var urlCache = [
-    "/",
     "/index.html",  
     "/js/script.js",
     "/service-worker.js",

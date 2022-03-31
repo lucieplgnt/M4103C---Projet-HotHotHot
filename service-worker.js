@@ -1,4 +1,5 @@
 var urlCache = [
+    "/",
     "/index.html",  
     "/js/script.js",
     "/js/chart.js",

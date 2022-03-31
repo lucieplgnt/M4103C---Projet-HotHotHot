@@ -1,51 +1,51 @@
 var CACHE_NAME = "M4103C---Projet-HotHotHot";
-// var urlCache = [
-//     "/",
-//     "/index.html",  
-//     "/js/script.js",
-//     "/service-worker.js",
-//     "/style/style.css",
-//     "/images/pikachu.png",   
-//     "/images/logoTrash.png"
-// ];
+var urlCache = [
+    "/",
+    "/index.html",  
+    "/js/script.js",
+    "/service-worker.js",
+    "/style/style.css",
+    "/images/pikachu.png",   
+    "/images/logoTrash.png"
+];
 
 
 
-// // Charger les ressources puis les mettre en cache
-// self.addEventListener('install', (e) => {
-//     e.waitUntil(
-//         caches.open(CACHE_NAME).then(function (cache) {
-//             console.log("Cashe Opened");
-//             return cache.addAll(urlCache);
-//         })
-//     );
-// });
-
+// Charger les ressources puis les mettre en cache
 self.addEventListener('install', (e) => {
-
     e.waitUntil(
-  
-      caches.open('M4103C---Projet-HotHotHot').then((cache) => cache.addAll([
-  
-          "/index.html",
-  
-          "/js/script.js",
-  
-          "/service-worker.js",
-
-          "/style/style.css",
-  
-          "/images/pikachu.png",
-          
-          "/images/kakashi.png",
-          
-          "/images/logoTrash.png"
-
-      ])),
-  
+        caches.open(CACHE_NAME).then(function (cache) {
+            console.log("Cashe Opened");
+            return cache.addAll(urlCache);
+        })
     );
+});
+
+// self.addEventListener('install', (e) => {
+
+//     e.waitUntil(
   
-  });
+//       caches.open('M4103C---Projet-HotHotHot').then((cache) => cache.addAll([
+  
+//           "/index.html",
+  
+//           "/js/script.js",
+  
+//           "/service-worker.js",
+
+//           "/style/style.css",
+  
+//           "/images/pikachu.png",
+          
+//           "/images/kakashi.png",
+          
+//           "/images/logoTrash.png"
+
+//       ])),
+  
+//     );
+  
+//   });
   
   
   

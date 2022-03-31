@@ -2,8 +2,7 @@ var urlCache = [
     "/index.html",  
     "/js/script.js",
     "/service-worker.js",
-    "/style/style.css",
-    "/images/pikachu.png",   
+    "/style/style.css",   
     "/images/logoTrash.png"
 ];
 

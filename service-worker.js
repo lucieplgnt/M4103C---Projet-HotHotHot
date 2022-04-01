@@ -1,12 +1,13 @@
-var CACHE_NAME = "M4103C---Projet-HotHotHot";
 var urlCache = [
-    "/",
-    "/index.html",  
-    "/js/script.js",
-    "/service-worker.js",
-    "/style/style.css",
-    "/images/pikachu.png",   
-    "/images/logoTrash.png"
+    "/M4103C---Projet-HotHotHot",
+    "/M4103C---Projet-HotHotHot/index.html",  
+    "/M4103C---Projet-HotHotHot/js/script.js",
+    "/M4103C---Projet-HotHotHot/js/chart.js",
+    "/M4103C---Projet-HotHotHot/service-worker.js",
+    "/M4103C---Projet-HotHotHot/style/style.css",
+    "/M4103C---Projet-HotHotHot/images/pikachu.png",
+    "/M4103C---Projet-HotHotHot/images/kakashi.png",
+    "/M4103C---Projet-HotHotHot/images/logoTrash.png"
 ];
 
 
@@ -14,7 +15,7 @@ var urlCache = [
 // Charger les ressources puis les mettre en cache
 self.addEventListener('install', (e) => {
     e.waitUntil(
-        caches.open(CACHE_NAME).then(function (cache) {
+        caches.open('M4103C---Projet-HotHotHot').then(function (cache) {
             console.log("Cashe Opened");
             return cache.addAll(urlCache);
         })
@@ -29,15 +30,17 @@ self.addEventListener('install', (e) => {
   
 //           "/index.html",
   
-//           "js/script.js",
+//           "/js/script.js",
   
 //           "/service-worker.js",
 
-//           "style/style.css",
+//           "/style/style.css",
   
-//           "images/pikachu.png",
+//           "/images/pikachu.png",
           
-//           "images/kakashi.png"
+//           "/images/kakashi.png",
+          
+//           "/images/logoTrash.png"
 
 //       ])),
   
@@ -70,7 +73,7 @@ self.addEventListener('fetch', function (event) {
                         // IMPORTANT: Même constat qu'au dessus, mais pour la mettre en cache
                         var responseToCache = response.clone();
 
-                        caches.open(CACHE_NAME)
+                        caches.open('M4103C---Projet-HotHotHot')
                             .then(function (cache) {
                                 cache.put(event.request, responseToCache);
                             });

@@ -1,22 +1,8 @@
 //Bouton notification - début
 let notification = document.querySelector(".notification");
-let notif = document.querySelector(".notif");
-let notif1 = document.querySelector(".notif-1");
 
 notification.onclick = function(){
   notification.classList.toggle("open");
-  
-  /* if(notif.contains('notif-active')) {
-    notif.classList.remove("notif-active");
-    notif.classList.add("notif");
-    notif1.classList.remove("notif-1-active");
-    notif1.classList.add("notif-1");
-  }
-
-  notif.classList.add("notif-active");
-  notif.classList.remove("notif");
-  notif1.classList.add("notif-1-active");
-  notif1.classList.remove("notif-1"); */
 }
 //Bouton notification - fin
 
@@ -154,16 +140,29 @@ socket.onmessage = (msg) => {
     let ext = capteurs['capteurs'][1];
     let interieur = capteurs['capteurs'][0];
     var tempext = ext['Valeur'];
-    let latempExt = "Température extérieure : " + tempext;
-    let latempInt = "Température intérieure : " + interieur['Valeur'];
+    let latempExt = "Température extérieure : ";
+    let valTemp = tempext;
+    let latempInt = "Température intérieure : ";
+    let valTemp2 = interieur['Valeur'];
 
-    console.log(latempExt);
-    console.log(latempInt);
+    console.log(latempExt + valTemp);
+    console.log(latempInt + valTemp2);
+    if (valTemp > 17) {
+      console.log("fait chaud !");
+    }
+    if (valTemp2 < 10) {
+      console.log("wesh le glaçon !");
+    }
 
     let tmp = document.querySelector(".temperature");
     tmp.textContent = latempExt;
+    let valeurTemperature = document.querySelector(".la-temp");
+    valeurTemperature.textContent = valTemp;
+
     let tmp2 = document.querySelector(".temperature2");
     tmp2.textContent= latempInt;
+    let valeurTemperature2 = document.querySelector(".la-temp2");
+    valeurTemperature2.textContent = valTemp2;
 
     var tabtemExt = {tempext} 
     localStorage.setItem(temp[IndiceTemp], JSON.stringify(tabtemExt));
@@ -219,36 +218,3 @@ fetch("https://hothothot.dog/api/capteurs/exterieur",
 };
 
 console.log();
-
-
-
-socket.onmessage = (msg) => {
-  console.log("Received: "+msg.data.length);
-  if(msg.data.length > 0) {
-    let LesCapteurs = JSON.parse(msg.data);
-    
-    let exter = LesCapteurs['LesCapteurs'][1];
-    let inter = LesCapteurs['LesCapteurs'][0];
-    var temperatureExt = exter['Valeur'];
-    var temperatureInt = inter['Valeur'];
-    const TExt = Array.from(temperatureExt);
-    const TInt = Array.from(temperatureInt);
-    
-    TExt.forEach(temperatureExt => {
-      if (temperatureExt > 17) {
-        console.log("fait chaud !");
-      }
-      else {
-        return;
-      }
-    })
-    TInt.forEach(temperatureInt => {
-      if (temperatureInt > 17) {
-        console.log("wesh le glaçon !");
-      }
-      else {
-        return;
-      }
-    })
-  }
-}

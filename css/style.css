@@ -32,6 +32,10 @@ body.dark {
   outline: none;
   text-decoration: none;
 }
+/* body.light .remonter {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #ff0606;
+} */
 .remonter:hover {
   background-color: rgba(255, 255, 255, 0.7);
 }
@@ -100,6 +104,7 @@ body.dark {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   background: #bb0a21;
+  overflow: hidden;
 }
 .notification.open .bxs-bell {
   color: #fff;
@@ -123,10 +128,6 @@ body.dark {
   color: #f1f1f1;
 }
 @media (max-width: 600px) {
-  /* .box {
-    bottom: 50px;
-    right: 20px;
-  } */
   .notification.open {
     width: 200px;
     height: 60px;
@@ -137,10 +138,8 @@ body.dark {
     left: 21%;
   }
   .notification.open .num::after {
-    left: unset;
-  }
-  .notification.open .num::after {
-    content: " Notifs";
+    left: 35%;
+    content: " - Notifs";
   }
 }
 .liste-1 {
@@ -157,18 +156,23 @@ body.dark {
   border-top-right-radius: 30px;
   display: none;
   overflow: hidden;
+  cursor: auto;
 }
 .notification.open ul {
   display: block;
 }
-.liste-1 li {
+.element-liste {
+  cursor: pointer;
+  display: none;
+}
+.element-liste-active {
   list-style: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 8px 0;
-  display: flex;
   max-height: 35px;
   margin-bottom: 20px;
   border-radius: 20px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -493,18 +497,18 @@ body.dark {
   position: absolute;
   opacity: 0;
 }
-.contenu h3 {
+.contenu .titre-donnees h3 {
   padding: 20px;
   color: #252627;
 }
-.contenu hr {
+.contenu .titre-donnees hr {
   width: 20%;
   height: 2px;
   margin-left: 20px;
   background: #252627;
   border: none;
 }
-.contenu p {
+.contenu .p-temp-ext p {
   padding: 20px;
   color: #252627;
 }
@@ -515,7 +519,7 @@ body.dark {
   transition: all 0.3s ease;
 }
 .activeContenu {
-  animation: fade 0.5s forwards;
+  animation: fade 0.5s forwards;;
 }
 @keyframes fade {
   from {
@@ -524,6 +528,58 @@ body.dark {
   to {
     opacity: 1;
   }
+}
+#clc {
+  transform: translateX(-3px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.titre-donnees {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.titre-temp {
+  font-size: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.p-temp-ext {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 270px;
+  position: relative;
+}
+.temperature {
+  position: absolute;
+  top: 20px;
+  font-size: 27px;
+}
+.la-temp {
+  position: absolute;
+  bottom: 50px;
+  font-size: 40px;
+}
+.p-temp-int {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 270px;
+  position: relative;
+}
+.temperature2 {
+  position: absolute;
+  top: 20px;
+  font-size: 27px;
+}
+.la-temp2 {
+  position: absolute;
+  bottom: 50px;
+  font-size: 40px;
 }
 /*
 ! section 1 fin
@@ -546,7 +602,7 @@ body.dark {
   padding: 0 20px;
 }
 .equipe {
-  height: 300px;
+  height: 500px;
   width: 20%;
   min-width: 250px;
   border-radius: 10px;
@@ -554,12 +610,13 @@ body.dark {
   margin-top: 10%;
   margin-right: 5%;
   background: rgba(51, 170, 51, 0.6);
+  background-color: #3F1B4F;
   flex-direction: column;
   overflow: hidden;
   transition: all 0.5s ease;
 }
 .equipe-container {
-  height: 300px;
+  height: 500px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -567,7 +624,7 @@ body.dark {
   transition: all 0.5s ease;
 }
 .equipe-container-1 {
-  height: 100px;
+  height: 200px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   display: flex;
@@ -577,12 +634,22 @@ body.dark {
   transition: all 0.5s ease;
 }
 .equipe:hover .equipe-container-1 {
-  transform: translateY(-100px);
+  transform: translateY(-200px);
   transition: all 0.5s ease;
 }
 .equipe:hover .equipe-container {
-  transform: translateY(-50px);
+  transform: translateY(-200px);
   transition: all 0.5s ease;
+}
+.equipe:hover .equipe-container .titre1 {
+  background-color: #790a18;
+  background-color: #7D2928;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1.5s ease;
 }
 .outils {
   height: 300px;
@@ -756,7 +823,6 @@ body.dark {
   padding: 20px;
   color: #252627;
 }
-
 .myChart {
   width: 20%;
   display: flex;
@@ -769,7 +835,6 @@ body.dark {
   color: #f1f1f1;
   transition: all 0.3s ease;
 }
-
 .activeContenu {
   animation: fade 0.5s forwards;
 }

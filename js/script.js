@@ -1,8 +1,8 @@
 //Bouton notification - début
-let notif = document.querySelector(".notification");
+let notification = document.querySelector(".notification");
 
-notif.onclick = function(){
-  notif.classList.toggle("open");
+notification.onclick = function(){
+  notification.classList.toggle("open");
 }
 //Bouton notification - fin
 
@@ -35,17 +35,17 @@ let section = document.querySelector("body");
 let sun = document.querySelector(".bx-sun");
 
 sun.addEventListener("click" , () =>{
-    if(section.classList.contains('dark')){
-        section.classList.add("light");
-        section.classList.remove("dark");
-        sun.classList.remove("bx-sun");
-        sun.classList.add("bx-moon");
-    } else if(section.classList.contains('light')){
-        section.classList.add("dark");
-        section.classList.remove("light");
-        sun.classList.add("bx-sun");
-        sun.classList.remove("bx-moon");
-    }
+  if(section.classList.contains('dark')){
+    section.classList.add("light");
+    section.classList.remove("dark");
+    sun.classList.remove("bx-sun");
+    sun.classList.add("bx-moon");
+  } else if(section.classList.contains('light')){
+    section.classList.add("dark");
+    section.classList.remove("light");
+    sun.classList.add("bx-sun");
+    sun.classList.remove("bx-moon");
+  }
 });
 // thème - fin
 
@@ -82,14 +82,40 @@ onglets.forEach(onglet => {
     }
   })
 })
-// anglets - fin
 
+let element = Array.from(document.querySelectorAll(".element-liste"));
+
+element.forEach(elements => {
+  elements.addEventListener("click" , () =>{
+    if (onglet.classList.contains('active')){
+      return;
+    } else {
+      onglet.classList.add('active');
+    }
+    index = 2;
+    for (i = 0; i < onglets.length; i++) {
+  
+      if (onglets[i].getAttribute('data-block') != index) {
+        onglets[i].classList.remove('active');
+      }
+    }
+  
+    for (j = 0; j < contenu.length; j++){
+      if (contenu[j].getAttribute('data-block') == index) {
+        contenu[j].classList.add('activeContenu');
+      } else {
+        contenu[j].classList.remove('activeContenu');
+      }
+    }
+  });
+})
+// anglets - fin
 
 if ('serviceWorker' in navigator) {
 
   navigator.serviceWorker.register('/M4103C---Projet-HotHotHot/service-worker.js') // à adapter à l'URL du projet
 
-  // .register('M4103C---Projet-HotHotHot/service-worker.js') // à adapter à l'URL du projet
+  .register('M4103C---Projet-HotHotHot/service-worker.js') // à adapter à l'URL du projet
 
   .then(() => { console.log('Service Worker Registered'); });
 
@@ -104,6 +130,74 @@ var socket = new WebSocket('wss://ws.hothothot.dog:9502');
 socket.onopen = () => {
   socket.send("Connexion open");
 };
+
+socket.onmessage = (msg) => {
+  console.log("Received: "+msg.data.length);
+  /* ajouter recup temp */
+  if(msg.data.length > 0)
+  {
+    let capteurs = JSON.parse(msg.data);
+
+    let ext = capteurs['capteurs'][1];
+    let interieur = capteurs['capteurs'][0];
+    var tempext = ext['Valeur'];
+    let latempExt = "Température extérieure : ";
+    let valTemp = tempext;
+    let latempInt = "Température intérieure : ";
+    let valTemp2 = interieur['Valeur'];
+
+    console.log(latempExt + valTemp);
+    console.log(latempInt + valTemp2);
+    if (valTemp > 17) {
+      console.log("fait chaud !");
+    }
+    if (valTemp2 < 10) {
+      console.log("wesh le glaçon !");
+    }
+
+    let tmp = document.querySelector(".temperature");
+    tmp.textContent = latempExt;
+    let valeurTemperature = document.querySelector(".la-temp");
+    valeurTemperature.textContent = valTemp;
+
+    let tmp2 = document.querySelector(".temperature2");
+    tmp2.textContent= latempInt;
+    let valeurTemperature2 = document.querySelector(".la-temp2");
+    valeurTemperature2.textContent = valTemp2;
+
+    var tabtemExt = {tempext} 
+    localStorage.setItem(temp[IndiceTemp], JSON.stringify(tabtemExt));
+
+    tempJSON = localStorage.getItem(temp[IndiceTemp]);
+  /*   tempp = tempJSON && JSON.Parse(tempJSON);
+  */
+    let histor = document.querySelector(".historique");
+    histor.textContent = tempJSON;
+    
+    IndiceTemp = IndiceTemp + 1;
+
+    console.log("data bien reçu");
+  }
+  else {
+    console.log("changement de connection");
+    fetch("https://hothothot.dog/api/capteurs/",
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({param1: 'valeur'})
+    })
+    .then(function(response){
+      return response.json.then(function(O_json){
+      });
+    })
+    .catch(function(){
+
+    });
+  };
+}
 
 //Creéation d'un graphique vide qui sera mis à jour avec les données reçus
 google.load("visualization", "1", {packages:["corechart"]});
@@ -190,9 +284,7 @@ function drawChart() {
                   });
               };
               }
-}     
-
-
+}
 
 socket.onerror = function(response) {
 fetch("https://hothothot.dog/api/capteurs/exterieur",

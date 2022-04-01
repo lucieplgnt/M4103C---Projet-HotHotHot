@@ -119,188 +119,143 @@ if ('serviceWorker' in navigator) {
 
 }
 
-//-- Gestion et recupération des données liée a la température --
+//capteurs
 
-
+// Create WebSocket connection.
 var socket = new WebSocket('wss://ws.hothothot.dog:9502'); 
 /* var socket = new WebSocket('ws://localhost:8100'); */
 
+IndiceTemp = 0;
 socket.onopen = () => {
   socket.send("Connexion open");
 };
-
-socket.onmessage = (msg) => {
-  console.log("Received: "+msg.data.length);
-  /* ajouter recup temp */
-  if(msg.data.length > 0)
-  {
-    let capteurs = JSON.parse(msg.data);
-
-    let ext = capteurs['capteurs'][1];
-    let interieur = capteurs['capteurs'][0];
-    var tempext = ext['Valeur'];
-    let latempExt = "Température extérieure : ";
-    let valTemp = tempext;
-    let latempInt = "Température intérieure : ";
-    let valTemp2 = interieur['Valeur'];
-
-    console.log(latempExt + valTemp);
-    console.log(latempInt + valTemp2);
-    if (valTemp > 17) {
-      console.log("fait chaud !");
-    }
-    if (valTemp2 < 10) {
-      console.log("wesh le glaçon !");
-    }
-
-    let tmp = document.querySelector(".temperature");
-    tmp.textContent = latempExt;
-    let valeurTemperature = document.querySelector(".la-temp");
-    valeurTemperature.textContent = valTemp;
-
-    let tmp2 = document.querySelector(".temperature2");
-    tmp2.textContent= latempInt;
-    let valeurTemperature2 = document.querySelector(".la-temp2");
-    valeurTemperature2.textContent = valTemp2;
-
-    var tabtemExt = {tempext} 
-    localStorage.setItem(temp[IndiceTemp], JSON.stringify(tabtemExt));
-
-    tempJSON = localStorage.getItem(temp[IndiceTemp]);
-  /*   tempp = tempJSON && JSON.Parse(tempJSON);
-  */
-    let histor = document.querySelector(".historique");
-    histor.textContent = tempJSON;
-    
-    IndiceTemp = IndiceTemp + 1;
-
-    console.log("data bien reçu");
-  }
-  else {
-    console.log("changement de connection");
-    fetch("https://hothothot.dog/api/capteurs/",
-    {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: "POST",
-      body: JSON.stringify({param1: 'valeur'})
-    })
-    .then(function(response){
-      return response.json.then(function(O_json){
-      });
-    })
-    .catch(function(){
-
-    });
-  };
-}
 
 //Creéation d'un graphique vide qui sera mis à jour avec les données reçus
 google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(drawChart);
 function drawChart() {
-            var options = {
-                title: 'Evolution température dans le temps'
-            };
-            var data = new google.visualization.DataTable();
+  var options = {
+    title: 'Evolution température dans le temps'
+  };
+  var data = new google.visualization.DataTable();
 
-            data.addColumn('string', 'Temps');
-            data.addColumn('number', 'Température ext');
-            data.addColumn('number', 'Température int')
+  data.addColumn('string', 'Temps');
+  data.addColumn('number', 'Température ext');
+  data.addColumn('number', 'Température int')
 
-            var chart = new google.visualization.LineChart(document.querySelector('.curve_chart'));
-            chart.draw(data, options);
+  var chart = new google.visualization.LineChart(document.querySelector('.curve_chart'));
+  chart.draw(data, options);
 
-            numberOfData = 0;
-            socket.onmessage = (msg) => {
-              console.log("Received: "+msg.data.length);
-              /* ajouter recup temp */
-              if(msg.data.length > 0)
-              { 
-                let capteurs = JSON.parse(msg.data);
-              
-                let ext = capteurs['capteurs'][1];
-                let interieur = capteurs['capteurs'][0];
-                var tempext = ext['Valeur'];
-                var tempint = interieur['Valeur'];
-                let latempExt = "Température extérieur : " + tempext;
-                let latempInt = "Température intérieur : " + interieur['Valeur'];
-                console.log(latempExt);
-                console.log(latempInt);
-              
-                let tmp = document.querySelector(".temperature");
-                tmp.textContent = latempExt;
-                let tmp2 = document.querySelector(".temperature2");
-                tmp2.textContent= latempInt;
-            
-                var tabTemp = [];
-                var tmpsAct = new Date();
-                heureNminute = tmpsAct.getHours();
-                heureNminute = heureNminute + "h : " + tmpsAct.getMinutes() + "m | ";
-                tempext = JSON.parse(tempext);
-                tempint = JSON.parse(tempint);
-                tabTemp.push(heureNminute);
-                tabTemp.push(tempext);
-                tabTemp.push(tempint);
-                console.log(heureNminute);
-                console.log(tabTemp);
-                data.addRows([[tabTemp[0], tabTemp[1], tabTemp[2]]]);
-                if (numberOfData >= 40)
-                {
-                  numberOfData = 38;
-                  data.removeRow(0);
-                  data.removeRow(1);
-                }
-                else {
-                  numberOfData = numberOfData + 1;
-                }
+  numberOfData = 0;
+  socket.onmessage = (msg) => {
+    console.log("Received: "+msg.data.length);
+    /* ajouter recup temp */
+    if(msg.data.length > 0)
+    { 
+      let capteurs = JSON.parse(msg.data);
 
-                var chart = new google.visualization.LineChart(document.querySelector('.curve_chart'));
-                chart.draw(data, options);
-              
-                console.log("data bien reçu");
-              }
-              else {
-                console.log("changement de connection");
-                fetch("https://hothothot.dog/api/capteurs/",
-              {
-                  headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  },
-                  method: "POST",
-                  body: JSON.stringify({param1: 'valeur'})
-                  })
-                  .then(function(response){
-                    return response.json.then(function(O_json){
-                    });
-                  })
-                  .catch(function(){
-              
-                  });
-              };
-              }
+      let ext = capteurs['capteurs'][1];
+      let interieur = capteurs['capteurs'][0];
+      var tempext = ext['Valeur'];
+      var tempint = interieur['Valeur'];
+      let latempExt = "Température extérieure : ";
+      let valTemp = tempext;
+      let latempInt = "Température intérieure : ";
+      let valTemp2 = interieur['Valeur'];
+
+      console.log(latempExt + valTemp);
+      console.log(latempInt + valTemp2);
+      if (valTemp > 17) {
+        console.log("c'est l'été ou quoi ?");
+      }
+      if (valTemp2 < 5) {
+        console.log("wesh le glaçon !");
+      }
+
+      let tmp = document.querySelector(".temperature");
+      tmp.textContent = latempExt;
+      let valeurTemperature = document.querySelector(".la-temp");
+      valeurTemperature.textContent = valTemp;
+
+      let tmp2 = document.querySelector(".temperature2");
+      tmp2.textContent= latempInt;
+      let valeurTemperature2 = document.querySelector(".la-temp2");
+      valeurTemperature2.textContent = valTemp2;
+
+      var tabTemp = [];
+      var tmpsAct = new Date();
+      heure = tmpsAct.getHours();
+      minute = tmpsAct.getMinutes();
+      heureNminute = heure + " : " + minute;
+      tempextGraph = JSON.parse(tempext);
+      tempintGraph = JSON.parse(tempint);
+      tabTemp.push(heureNminute);
+      tabTemp.push(tempextGraph);
+      tabTemp.push(tempintGraph);
+      console.log(heureNminute);
+      console.log(tabTemp);
+      data.addRows([[tabTemp[0], tabTemp[1], tabTemp[2]]]);
+      if (numberOfData >= 40)
+      {
+        numberOfData = 38;
+        data.removeRow(0);
+        data.removeRow(1);
+      }
+      else {
+        numberOfData = numberOfData + 1;
+      }
+
+      var chart = new google.visualization.LineChart(document.querySelector('.curve_chart'));
+      chart.draw(data, options);
+
+      var tabtemExt = {tempext} 
+      localStorage.setItem(temp[IndiceTemp], JSON.stringify(tabtemExt));
+      tempJSON = localStorage.getItem(temp[IndiceTemp]);
+      /* tempp = tempJSON && JSON.Parse(tempJSON); */
+      let histor = document.querySelector(".historique");
+      histor.textContent = tempJSON;
+      IndiceTemp = IndiceTemp + 1;
+    
+      console.log("data bien reçu");
+    }
+    else {
+      console.log("changement de connection");
+      fetch("https://hothothot.dog/api/capteurs/",
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({param1: 'valeur'})
+      })
+      .then(function(response){
+        return response.json.then(function(O_json){
+        });
+      })
+      .catch(function(){
+      });
+    };
+  }
 }
 
 socket.onerror = function(response) {
 fetch("https://hothothot.dog/api/capteurs/exterieur",
 {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method: "POST",
-    body: JSON.stringify({param1: 'valeur'})
-    })
-    .then(function(response){
-      return response.json.then(function(O_json){
-      });
-    })
-    .catch(function(){
+headers: {
+'Accept': 'application/json',
+'Content-Type': 'application/json'
+},
+method: "POST",
+body: JSON.stringify({param1: 'valeur'})
+})
+.then(function(response){
+return response.json.then(function(O_json){
+});
+})
+.catch(function(){
 
-    });
+});
 };
 
 console.log();

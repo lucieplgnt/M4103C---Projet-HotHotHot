@@ -203,106 +203,106 @@ socket.onmessage = (msg) => {
 google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(drawChart);
 function drawChart() {
-            var options = {
-                title: 'Evolution température dans le temps'
-            };
-            var data = new google.visualization.DataTable();
+  var options = {
+      title: 'Evolution température dans le temps'
+  };
+  var data = new google.visualization.DataTable();
 
-            data.addColumn('string', 'Temps');
-            data.addColumn('number', 'Température ext');
-            data.addColumn('number', 'Température int')
+  data.addColumn('string', 'Temps');
+  data.addColumn('number', 'Température ext');
+  data.addColumn('number', 'Température int')
 
-            var chart = new google.visualization.LineChart(document.querySelector('.curve_chart'));
-            chart.draw(data, options);
+  var chart = new google.visualization.LineChart(document.querySelector('.curve_chart'));
+  chart.draw(data, options);
 
-            numberOfData = 0;
-            socket.onmessage = (msg) => {
-              console.log("Received: "+msg.data.length);
-              /* ajouter recup temp */
-              if(msg.data.length > 0)
-              { 
-                let capteurs = JSON.parse(msg.data);
-              
-                let ext = capteurs['capteurs'][1];
-                let interieur = capteurs['capteurs'][0];
-                var tempext = ext['Valeur'];
-                var tempint = interieur['Valeur'];
-                let latempExt = "Température extérieur : " + tempext;
-                let latempInt = "Température intérieur : " + interieur['Valeur'];
-                console.log(latempExt);
-                console.log(latempInt);
-              
-                let tmp = document.querySelector(".temperature");
-                tmp.textContent = latempExt;
-                let tmp2 = document.querySelector(".temperature2");
-                tmp2.textContent= latempInt;
-            
-                var tabTemp = [];
-                var tmpsAct = new Date();
-                heureNminute = tmpsAct.getHours();
-                heureNminute = heureNminute + "h : " + tmpsAct.getMinutes() + "m | ";
-                tempext = JSON.parse(tempext);
-                tempint = JSON.parse(tempint);
-                tabTemp.push(heureNminute);
-                tabTemp.push(tempext);
-                tabTemp.push(tempint);
-                console.log(heureNminute);
-                console.log(tabTemp);
-                data.addRows([[tabTemp[0], tabTemp[1], tabTemp[2]]]);
-                if (numberOfData >= 40)
-                {
-                  numberOfData = 38;
-                  data.removeRow(0);
-                  data.removeRow(1);
-                }
-                else {
-                  numberOfData = numberOfData + 1;
-                }
+  numberOfData = 0;
+  socket.onmessage = (msg) => {
+    console.log("Received: "+msg.data.length);
+    /* ajouter recup temp */
+    if(msg.data.length > 0)
+    { 
+      let capteurs = JSON.parse(msg.data);
+    
+      let ext = capteurs['capteurs'][1];
+      let interieur = capteurs['capteurs'][0];
+      var tempext = ext['Valeur'];
+      var tempint = interieur['Valeur'];
+      let latempExt = "Température extérieur : " + tempext;
+      let latempInt = "Température intérieur : " + interieur['Valeur'];
+      console.log(latempExt);
+      console.log(latempInt);
+    
+      let tmp = document.querySelector(".temperature");
+      tmp.textContent = latempExt;
+      let tmp2 = document.querySelector(".temperature2");
+      tmp2.textContent= latempInt;
+  
+      var tabTemp = [];
+      var tmpsAct = new Date();
+      heureNminute = tmpsAct.getHours();
+      heureNminute = heureNminute + "h : " + tmpsAct.getMinutes() + "m | ";
+      tempext = JSON.parse(tempext);
+      tempint = JSON.parse(tempint);
+      tabTemp.push(heureNminute);
+      tabTemp.push(tempext);
+      tabTemp.push(tempint);
+      console.log(heureNminute);
+      console.log(tabTemp);
+      data.addRows([[tabTemp[0], tabTemp[1], tabTemp[2]]]);
+      if (numberOfData >= 40)
+      {
+        numberOfData = 38;
+        data.removeRow(0);
+        data.removeRow(1);
+      }
+      else {
+        numberOfData = numberOfData + 1;
+      }
 
-                var chart = new google.visualization.LineChart(document.querySelector('.curve_chart'));
-                chart.draw(data, options);
-              
-                console.log("data bien reçu");
-              }
-              else {
-                console.log("changement de connection");
-                fetch("https://hothothot.dog/api/capteurs/",
-              {
-                  headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  },
-                  method: "POST",
-                  body: JSON.stringify({param1: 'valeur'})
-                  })
-                  .then(function(response){
-                    return response.json.then(function(O_json){
-                    });
-                  })
-                  .catch(function(){
-              
-                  });
-              };
-              }
+      var chart = new google.visualization.LineChart(document.querySelector('.curve_chart'));
+      chart.draw(data, options);
+    
+      console.log("data bien reçu");
+    }
+    else {
+      console.log("changement de connection");
+      fetch("https://hothothot.dog/api/capteurs/",
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({param1: 'valeur'})
+      })
+      .then(function(response){
+        return response.json.then(function(O_json){
+        });
+      })
+      .catch(function(){
+  
+      });
+    };
+    }
 }
 
 socket.onerror = function(response) {
 fetch("https://hothothot.dog/api/capteurs/exterieur",
 {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method: "POST",
-    body: JSON.stringify({param1: 'valeur'})
-    })
-    .then(function(response){
-      return response.json.then(function(O_json){
-      });
-    })
-    .catch(function(){
-
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  method: "POST",
+  body: JSON.stringify({param1: 'valeur'})
+  })
+  .then(function(response){
+    return response.json.then(function(O_json){
     });
+  })
+  .catch(function(){
+
+  });
 };
 
 console.log();

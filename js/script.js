@@ -186,13 +186,14 @@ function drawChart() {
       var tmpsAct = new Date();
       heure = tmpsAct.getHours();
       minute = tmpsAct.getMinutes();
-      heureNminute = heure + " : " + minute;
+      heure = heure < 10 ? "0" + heure : heure;
+      minute = minute < 10 ? "0" + minute : minute;
+      heureNminute = heure + "h : " + minute + "m";
       tempextGraph = JSON.parse(tempext);
       tempintGraph = JSON.parse(tempint);
       tabTemp.push(heureNminute);
       tabTemp.push(tempextGraph);
       tabTemp.push(tempintGraph);
-      console.log(heureNminute);
       console.log(tabTemp);
       data.addRows([[tabTemp[0], tabTemp[1], tabTemp[2]]]);
       if (numberOfData >= 40)

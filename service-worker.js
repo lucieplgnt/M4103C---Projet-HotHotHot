@@ -9,7 +9,7 @@ self.addEventListener('install', (e) => {
           "index.html",  
           "js/script.js",
           "js/chart.js",
-          "style/style.css",
+          "css/style.css",
           "images/pikachu.png",
           "images/kakashi.png",
           "images/logoTrash.png",

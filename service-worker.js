@@ -8,7 +8,7 @@ self.addEventListener('install', (e) => {
   
           "/M4103C---Projet-HotHotHot/index.html",  
           "/M4103C---Projet-HotHotHot/js/script.js",
-          "/M4103C---Projet-HotHotHot/images/logoTrash.png",
+          "/M4103C---Projet-HotHotHot/images/thermometer.png",
           "/M4103C---Projet-HotHotHot/service-worker.js",
           "/M4103C---Projet-HotHotHot/css/style.css"
 

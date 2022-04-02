@@ -111,6 +111,8 @@ element.forEach(elements => {
 })
 // anglets - fin
 
+//capteurs
+
 if ('serviceWorker' in navigator) {
 
   navigator.serviceWorker.register('/M4103C---Projet-HotHotHot/service-worker.js') // à adapter à l'URL du projet
@@ -118,8 +120,6 @@ if ('serviceWorker' in navigator) {
   .then(() => { console.log('Service Worker Registered'); });
 
 }
-
-//capteurs
 
 // Create WebSocket connection.
 var socket = new WebSocket('wss://ws.hothothot.dog:9502'); 

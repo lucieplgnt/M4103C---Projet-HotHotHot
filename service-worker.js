@@ -6,11 +6,6 @@ self.addEventListener('install', (e) => {
   
       caches.open(CACHE).then((cache) => cache.addAll([
   
-          "/index.html",  
-          "/js/script.js",
-          "/css/style.css",
-          "/images/logoTrash.png",
-          "/service-worker.js"
 
       ])),
   

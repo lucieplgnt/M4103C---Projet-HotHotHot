@@ -317,26 +317,40 @@ function drawChart() {
         let text2 = document.querySelector("#text2");
         let text3 = document.querySelector("#text3");
         let text4 = document.querySelector("#text4");
+        let comptNotif = document.querySelector("#num");
+        var comptN = 0;
+        var comptN1 = 0;
+        var comptN2 = 0;
+        var comptN3 = 0;
+        var comptN4 = 0;
         if (valTemp > 16 || valTemp2 > 16) {
           console.log("il fait bon aujourd'hui");
           let message1 = "il fait bon aujourd'hui";
           text1.textContent = message1;
+          /* comptNotif = comptNotif + 1; */
+          var comptN1 = 1;
         }
         if (valTemp > 22 || valTemp2 > 22) {
-          console.log("c'est l'été ou quoi ?");
-          let message2 = "c'est l'été ou quoi ?";
+          console.log("la température dépasse 22°");
+          let message2 = "la température dépasse 22°";
           text2.textContent = message2;
+          var comptN2 = 1;
         }
         if (valTemp2 < 10 || valTemp < 10) {
           console.log("il fait froid aujourd'hui");
           let message3 = "il fait froid aujourd'hui";
           text3.textContent = message3;
+          var comptN3 = 1;
         }
         if (valTemp2 < 5 || valTemp < 5) {
-          console.log("wesh le glaçon !");
-          let message4 = "wesh le glaçon !";
+          console.log("il fait moins de 5°");
+          let message4 = "il fait moins de 5°";
           text4.textContent = message4;
+          var comptN4 = 1;
         }
+        /* comptNotif.textContent = comptN + 1; */
+        valeurFinale = comptN + comptN1 + comptN2 + comptN3 + comptN4;
+        comptNotif.textContent = valeurFinale;
 
         let tmp = document.querySelector(".temperature");
         tmp.textContent = latempExt;
@@ -380,7 +394,7 @@ function drawChart() {
           
       }))
     }
-  }, 60000)
+  }, 6000) /* 60000 */
 }
 
 

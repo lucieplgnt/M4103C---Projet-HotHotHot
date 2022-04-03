@@ -224,6 +224,71 @@ function drawChart() {
       const UrlApi = "https://hothothot.dog/api/capteurs/";
       fetch(UrlApi)
         .then((response) => reponse.json().then((data) => {
+
+            let capteurs = JSON.parse(msg.data);
+            let ext = capteurs['capteurs'][1];
+            let interieur = capteurs['capteurs'][0];
+            var tempext = ext['Valeur'];
+            var tempint = interieur['Valeur'];
+            let latempExt = "Température extérieure : ";
+            let valTemp = tempext;
+            let latempInt = "Température intérieure : ";
+            let valTemp2 = interieur['Valeur'];
+            console.log(latempExt + valTemp);
+            console.log(latempInt + valTemp2);
+            if (valTemp > 17) {
+              console.log("c'est l'été ou quoi ?");
+            }
+            if (valTemp2 < 5) {
+              console.log("wesh le glaçon !");
+            }
+
+            let tmp = document.querySelector(".temperature");
+            tmp.textContent = latempExt;
+            let valeurTemperature = document.querySelector(".la-temp");
+            valeurTemperature.textContent = valTemp;
+
+            let tmp2 = document.querySelector(".temperature2");
+            tmp2.textContent= latempInt;
+            let valeurTemperature2 = document.querySelector(".la-temp2");
+            valeurTemperature2.textContent = valTemp2;
+
+            var tabTemp = [];
+            var tmpsAct = new Date();
+            heure = tmpsAct.getHours();
+            minute = tmpsAct.getMinutes();
+            heure = heure < 10 ? "0" + heure : heure;
+            minute = minute < 10 ? "0" + minute : minute;
+            heureNminute = heure + "h : " + minute + "m";
+            tempextGraph = JSON.parse(tempext);
+            tempintGraph = JSON.parse(tempint);
+            tabTemp.push(heureNminute);
+            tabTemp.push(tempextGraph);
+            tabTemp.push(tempintGraph);
+            console.log(tabTemp);
+            data.addRows([[tabTemp[0], tabTemp[1], tabTemp[2]]]);
+            if (numberOfData >= 40)
+            {
+              numberOfData = 38;
+              data.removeRow(0);
+              data.removeRow(1);
+            }
+            else {
+              numberOfData = numberOfData + 1;
+            }
+
+            var chart = new google.visualization.LineChart(document.querySelector('.curve_chart'));
+            chart.draw(data, options);
+
+            var tabtemExt = {tempext} 
+            localStorage.setItem(temp[IndiceTemp], JSON.stringify(tabtemExt));
+            tempJSON = localStorage.getItem(temp[IndiceTemp]);
+            /* tempp = tempJSON && JSON.Parse(tempJSON); */
+            let histor = document.querySelector(".historique");
+            histor.textContent = tempJSON;
+            IndiceTemp = IndiceTemp + 1;
+          
+            console.log("data bien reçu");
           
         }))
     };
@@ -232,7 +297,7 @@ function drawChart() {
 
 setInterval(()=>{
   if(socket.readyState != 1) {
-    const UrlApi = "https://hothothot.dog/api/capteurs/";
+    const UrlApi = "https://hothothot.dog/api/capteurs";
     fetch(UrlApi)
       .then((response) => reponse.json().then((data) => {
               console.log("Received: "+msg.data.length);

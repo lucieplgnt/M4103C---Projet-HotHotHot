@@ -313,17 +313,29 @@ function drawChart() {
         console.log(latempExt + valTemp);
         console.log(latempInt + valTemp2);
         /* notifs */
+        let text1 = document.querySelector("#text1");
+        let text2 = document.querySelector("#text2");
+        let text3 = document.querySelector("#text3");
+        let text4 = document.querySelector("#text4");
         if (valTemp > 16 || valTemp2 > 16) {
           console.log("il fait bon aujourd'hui");
+          let message1 = "il fait bon aujourd'hui";
+          text1.textContent = message1;
         }
-        if (valTemp > 24 || valTemp2 > 24) {
+        if (valTemp > 22 || valTemp2 > 22) {
           console.log("c'est l'été ou quoi ?");
+          let message2 = "c'est l'été ou quoi ?";
+          text2.textContent = message2;
         }
         if (valTemp2 < 10 || valTemp < 10) {
           console.log("il fait froid aujourd'hui");
+          let message3 = "il fait froid aujourd'hui";
+          text3.textContent = message3;
         }
         if (valTemp2 < 5 || valTemp < 5) {
           console.log("wesh le glaçon !");
+          let message4 = "wesh le glaçon !";
+          text4.textContent = message4;
         }
 
         let tmp = document.querySelector(".temperature");

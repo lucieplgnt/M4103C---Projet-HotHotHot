@@ -298,10 +298,7 @@ function drawChart() {
 setInterval(()=>{
   if(socket.readyState != 1) {
     const UrlApi = "https://hothothot.dog/api/capteurs";
-    fetch(UrlApi)
-      .then((response) => response.json().then((data) => {
-              console.log("Received: "+msg.data.length);
-              /* ajouter recup temp */
+    fetch(UrlApi).then((response) => response.json().then((data) => {
               if(msg.data.length > 0)
               { 
                 let capteurs = JSON.parse(msg.data);

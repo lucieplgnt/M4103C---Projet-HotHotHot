@@ -140,8 +140,8 @@ function drawChart() {
   var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'Temps');
-  data.addColumn('number', 'Température ext');
-  data.addColumn('number', 'Température int')
+  data.addColumn('number', 'ext');
+  data.addColumn('number', 'int')
 
   var chart = new google.visualization.LineChart(document.querySelector('.curve_chart'));
   chart.draw(data, options);

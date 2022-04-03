@@ -82,108 +82,6 @@ onglets.forEach(onglet => {
     }
   })
 })
-
-let element1 = document.querySelectorAll(".element-liste1");
-let element2 = document.querySelectorAll(".element-liste2");
-let element3 = document.querySelectorAll(".element-liste3");
-let element4 = document.querySelectorAll(".element-liste4");
-
-element1.forEach(elements => {
-  elements.addEventListener("click" , () =>{
-    if (onglet.classList.contains('active')){
-      return;
-    } else {
-      onglet.classList.add('active');
-    }
-    index = 2;
-    for (i = 0; i < onglets.length; i++) {
-  
-      if (onglets[i].getAttribute('data-block') != index) {
-        onglets[i].classList.remove('active');
-      }
-    }
-  
-    for (j = 0; j < contenu.length; j++){
-      if (contenu[j].getAttribute('data-block') == index) {
-        contenu[j].classList.add('activeContenu');
-      } else {
-        contenu[j].classList.remove('activeContenu');
-      }
-    }
-  });
-})
-element2.forEach(elements => {
-  elements.addEventListener("click" , () =>{
-    if (onglet.classList.contains('active')){
-      return;
-    } else {
-      onglet.classList.add('active');
-    }
-    index = 2;
-    for (i = 0; i < onglets.length; i++) {
-  
-      if (onglets[i].getAttribute('data-block') != index) {
-        onglets[i].classList.remove('active');
-      }
-    }
-  
-    for (j = 0; j < contenu.length; j++){
-      if (contenu[j].getAttribute('data-block') == index) {
-        contenu[j].classList.add('activeContenu');
-      } else {
-        contenu[j].classList.remove('activeContenu');
-      }
-    }
-  });
-})
-element3.forEach(elements => {
-  elements.addEventListener("click" , () =>{
-    if (onglet.classList.contains('active')){
-      return;
-    } else {
-      onglet.classList.add('active');
-    }
-    index = 2;
-    for (i = 0; i < onglets.length; i++) {
-  
-      if (onglets[i].getAttribute('data-block') != index) {
-        onglets[i].classList.remove('active');
-      }
-    }
-  
-    for (j = 0; j < contenu.length; j++){
-      if (contenu[j].getAttribute('data-block') == index) {
-        contenu[j].classList.add('activeContenu');
-      } else {
-        contenu[j].classList.remove('activeContenu');
-      }
-    }
-  });
-})
-element4.forEach(elements => {
-  elements.addEventListener("click" , () =>{
-    if (onglet.classList.contains('active')){
-      return;
-    } else {
-      onglet.classList.add('active');
-    }
-    index = 2;
-    for (i = 0; i < onglets.length; i++) {
-  
-      if (onglets[i].getAttribute('data-block') != index) {
-        onglets[i].classList.remove('active');
-      }
-    }
-  
-    for (j = 0; j < contenu.length; j++){
-      if (contenu[j].getAttribute('data-block') == index) {
-        contenu[j].classList.add('activeContenu');
-      } else {
-        contenu[j].classList.remove('activeContenu');
-      }
-    }
-  });
-})
 // anglets - fin
 
 //capteurs
@@ -416,6 +314,10 @@ function drawChart() {
         else {
           text1.textContent = "message de base";
         }
+        notif1.addEventListener("click" , () =>{
+          notif1.classList.remove("element-liste1-active");
+          notif1.classList.add("element-liste1");
+        });
 
         if (valTemp > 22 || valTemp2 > 22) {
           messageTest = "il fait chaud : " + valTemp + "°";
@@ -431,6 +333,10 @@ function drawChart() {
         else {
           text2.textContent = "message de base";
         }
+        notif2.addEventListener("click" , () =>{
+          notif2.classList.remove("element-liste2-active");
+          notif2.classList.add("element-liste2");
+        });
 
         if (valTemp2 < 12 || valTemp < 12) { /* 10 */
           console.log("il fait froid aujourd'hui, -12°");
@@ -445,6 +351,10 @@ function drawChart() {
         else {
           text3.textContent = "message de base";
         }
+        notif3.addEventListener("click" , () =>{
+          notif3.classList.remove("element-liste3-active");
+          notif3.classList.add("element-liste3");
+        });
 
         if (valTemp2 < 5 || valTemp < 5) {
           console.log("il fait moins de 5°");
@@ -459,6 +369,10 @@ function drawChart() {
         else {
           text4.textContent = "message de base";
         }
+        notif4.addEventListener("click" , () =>{
+          notif4.classList.remove("element-liste4-active");
+          notif4.classList.add("element-liste4");
+        });
         valeurFinale = comptN + comptN1 + comptN2 + comptN3 + comptN4;
         comptNotif.textContent = valeurFinale;
 
@@ -509,6 +423,114 @@ function drawChart() {
   }, 10000) /* 60000 */
 }
 
+/* click */
+let comptNotif = document.querySelector("#num");
+
+let element1 = document.querySelectorAll(".element-liste1");
+let element2 = document.querySelectorAll(".element-liste2");
+let element3 = document.querySelectorAll(".element-liste3");
+let element4 = document.querySelectorAll(".element-liste4");
+
+element1.forEach(elements => {
+  elements.addEventListener("click" , () =>{
+    if (onglet.classList.contains('active')){
+      return;
+    } else {
+      onglet.classList.add('active');
+    }
+    index = 2;
+    for (i = 0; i < onglets.length; i++) {
+  
+      if (onglets[i].getAttribute('data-block') != index) {
+        onglets[i].classList.remove('active');
+      }
+    }
+  
+    for (j = 0; j < contenu.length; j++){
+      if (contenu[j].getAttribute('data-block') == index) {
+        contenu[j].classList.add('activeContenu');
+      } else {
+        contenu[j].classList.remove('activeContenu');
+      }
+    }
+    comptNotif.textContent = 0;
+  });
+})
+element2.forEach(elements => {
+  elements.addEventListener("click" , () =>{
+    if (onglet.classList.contains('active')){
+      return;
+    } else {
+      onglet.classList.add('active');
+    }
+    index = 2;
+    for (i = 0; i < onglets.length; i++) {
+  
+      if (onglets[i].getAttribute('data-block') != index) {
+        onglets[i].classList.remove('active');
+      }
+    }
+  
+    for (j = 0; j < contenu.length; j++){
+      if (contenu[j].getAttribute('data-block') == index) {
+        contenu[j].classList.add('activeContenu');
+      } else {
+        contenu[j].classList.remove('activeContenu');
+      }
+    }
+    comptNotif.textContent = 0;
+  });
+})
+element3.forEach(elements => {
+  elements.addEventListener("click" , () =>{
+    if (onglet.classList.contains('active')){
+      return;
+    } else {
+      onglet.classList.add('active');
+    }
+    index = 2;
+    for (i = 0; i < onglets.length; i++) {
+  
+      if (onglets[i].getAttribute('data-block') != index) {
+        onglets[i].classList.remove('active');
+      }
+    }
+  
+    for (j = 0; j < contenu.length; j++){
+      if (contenu[j].getAttribute('data-block') == index) {
+        contenu[j].classList.add('activeContenu');
+      } else {
+        contenu[j].classList.remove('activeContenu');
+      }
+    }
+    comptNotif.textContent = 0;
+  });
+})
+element4.forEach(elements => {
+  elements.addEventListener("click" , () =>{
+    if (onglet.classList.contains('active')){
+      return;
+    } else {
+      onglet.classList.add('active');
+    }
+    index = 2;
+    for (i = 0; i < onglets.length; i++) {
+  
+      if (onglets[i].getAttribute('data-block') != index) {
+        onglets[i].classList.remove('active');
+      }
+    }
+  
+    for (j = 0; j < contenu.length; j++){
+      if (contenu[j].getAttribute('data-block') == index) {
+        contenu[j].classList.add('activeContenu');
+      } else {
+        contenu[j].classList.remove('activeContenu');
+      }
+    }
+    comptNotif.textContent = 0;
+  });
+})
 
 socket.onerror = function(response) {
   fetch("https://hothothot.dog/api/capteurs/exterieur",

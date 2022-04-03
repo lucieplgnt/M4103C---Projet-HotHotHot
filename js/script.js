@@ -299,8 +299,6 @@ setInterval(()=>{
   if(socket.readyState != 1) {
     const UrlApi = "https://hothothot.dog/api/capteurs";
     fetch(UrlApi).then((response) => response.json().then((data) => {
-              if(msg.data.length > 0)
-              { 
                 let capteurs = JSON.parse(msg.data);
               
                 let ext = capteurs['capteurs'][1];
@@ -343,7 +341,6 @@ setInterval(()=>{
                 chart.draw(data, options);
               
                 console.log("data bien reçu");
-              }
         
       }))
   }

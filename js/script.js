@@ -367,8 +367,6 @@ return response.json.then(function(O_json){
 });
 };
 
-console.log();
-
 let deferredPrompt;
 const addBtn = document.querySelector('.add-button');
 addBtn.style.display = 'none';
@@ -398,4 +396,4 @@ window.addEventListener('beforeinstallprompt', (e) => {
   });
 });
 
-
+console.log();

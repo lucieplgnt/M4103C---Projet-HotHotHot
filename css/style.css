@@ -161,11 +161,56 @@ body.dark {
 .notification.open ul {
   display: block;
 }
-.element-liste {
+.element-liste1 {
   cursor: pointer;
   display: none;
 }
-.element-liste-active {
+.element-liste1-active {
+  list-style: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  max-height: 35px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.element-liste2 {
+  cursor: pointer;
+  display: none;
+}
+.element-liste2-active {
+  list-style: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  max-height: 35px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.element-liste3 {
+  cursor: pointer;
+  display: none;
+}
+.element-liste3-active {
+  list-style: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  max-height: 35px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.element-liste4 {
+  cursor: pointer;
+  display: none;
+}
+.element-liste4-active {
   list-style: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 8px 0;
@@ -582,6 +627,16 @@ body.dark {
   font-size: 40px;
 }
 /*
+graphe - début
+*/
+#clc-2 {
+  transform: translateX(-3px);
+  padding-top: 60px;
+}
+/*
+graphe - fin
+*/
+/*
 ! section 1 fin
 */
 /*
@@ -613,6 +668,8 @@ body.dark {
   flex-direction: column;
   overflow: hidden;
   transition: all 0.5s ease;
+  cursor: pointer;
+  position: relative;
 }
 .equipe-container {
   height: 500px;
@@ -620,6 +677,28 @@ body.dark {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.5s ease;
+}
+.equipe-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: #790a18;
+  position: absolute;
+  color: #f1f1f1;
+  z-index: 100;
+  top: 150px;
+  left: calc(50% - 50px);
+  padding: 20px;
+  display: none;
+  transition: all 0.5s ease;
+}
+.bx-popsicle {
+  font-size: 60px;
+  transition: all 0.5s ease;
+}
+.equipe:hover .equipe-logo {
+  display: flex;
   transition: all 0.5s ease;
 }
 .equipe-container-1 {
@@ -775,6 +854,9 @@ body.dark {
 .change:hover .change-container {
   transform: translateY(-50px);
   transition: all 0.5s ease;
+}
+.p1 {
+  font-size: 20px;
 }
 /*
 ! section 2 fin

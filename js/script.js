@@ -83,9 +83,84 @@ onglets.forEach(onglet => {
   })
 })
 
-let element = Array.from(document.querySelectorAll(".element-liste"));
+let element1 = document.querySelectorAll(".element-liste1");
+let element2 = document.querySelectorAll(".element-liste2");
+let element3 = document.querySelectorAll(".element-liste3");
+let element4 = document.querySelectorAll(".element-liste4");
 
-element.forEach(elements => {
+element1.forEach(elements => {
+  elements.addEventListener("click" , () =>{
+    if (onglet.classList.contains('active')){
+      return;
+    } else {
+      onglet.classList.add('active');
+    }
+    index = 2;
+    for (i = 0; i < onglets.length; i++) {
+  
+      if (onglets[i].getAttribute('data-block') != index) {
+        onglets[i].classList.remove('active');
+      }
+    }
+  
+    for (j = 0; j < contenu.length; j++){
+      if (contenu[j].getAttribute('data-block') == index) {
+        contenu[j].classList.add('activeContenu');
+      } else {
+        contenu[j].classList.remove('activeContenu');
+      }
+    }
+  });
+})
+element2.forEach(elements => {
+  elements.addEventListener("click" , () =>{
+    if (onglet.classList.contains('active')){
+      return;
+    } else {
+      onglet.classList.add('active');
+    }
+    index = 2;
+    for (i = 0; i < onglets.length; i++) {
+  
+      if (onglets[i].getAttribute('data-block') != index) {
+        onglets[i].classList.remove('active');
+      }
+    }
+  
+    for (j = 0; j < contenu.length; j++){
+      if (contenu[j].getAttribute('data-block') == index) {
+        contenu[j].classList.add('activeContenu');
+      } else {
+        contenu[j].classList.remove('activeContenu');
+      }
+    }
+  });
+})
+element3.forEach(elements => {
+  elements.addEventListener("click" , () =>{
+    if (onglet.classList.contains('active')){
+      return;
+    } else {
+      onglet.classList.add('active');
+    }
+    index = 2;
+    for (i = 0; i < onglets.length; i++) {
+  
+      if (onglets[i].getAttribute('data-block') != index) {
+        onglets[i].classList.remove('active');
+      }
+    }
+  
+    for (j = 0; j < contenu.length; j++){
+      if (contenu[j].getAttribute('data-block') == index) {
+        contenu[j].classList.add('activeContenu');
+      } else {
+        contenu[j].classList.remove('activeContenu');
+      }
+    }
+  });
+})
+element4.forEach(elements => {
   elements.addEventListener("click" , () =>{
     if (onglet.classList.contains('active')){
       return;
@@ -318,40 +393,76 @@ function drawChart() {
         let text3 = document.querySelector("#text3");
         let text4 = document.querySelector("#text4");
         let comptNotif = document.querySelector("#num");
+        let notif1 = document.querySelector(".element-liste1");
+        let notif2 = document.querySelector(".element-liste2");
+        let notif3 = document.querySelector(".element-liste3");
+        let notif4 = document.querySelector(".element-liste4");
         var comptN = 0;
         var comptN1 = 0;
         var comptN2 = 0;
         var comptN3 = 0;
         var comptN4 = 0;
+
         if (valTemp > 16 || valTemp2 > 16) {
           console.log("il fait bon aujourd'hui");
-          let message1 = "il fait bon aujourd'hui";
+
+          let message1 = "il fait bon aujourd'hui, +16°";
           text1.textContent = message1;
-          /* comptNotif = comptNotif + 1; */
+
+          notif1.classList.add("element-liste1-active");
+
           var comptN1 = 1;
         }
+        else {
+          text1.textContent = "message de base";
+        }
+
         if (valTemp > 22 || valTemp2 > 22) {
-          console.log("la température dépasse 22°");
+          messageTest = "il fait chaud : " + valTemp + "°";
+          console.log(messageTest);
+
           let message2 = "la température dépasse 22°";
           text2.textContent = message2;
+
+          notif2.classList.add("element-liste2-active");
+
           var comptN2 = 1;
         }
-        if (valTemp2 < 10 || valTemp < 10) {
-          console.log("il fait froid aujourd'hui");
+        else {
+          text2.textContent = "message de base";
+        }
+
+        if (valTemp2 < 12 || valTemp < 12) { /* 10 */
+          console.log("il fait froid aujourd'hui, -12°");
+
           let message3 = "il fait froid aujourd'hui";
           text3.textContent = message3;
+
+          notif3.classList.add("element-liste3-active");
+
           var comptN3 = 1;
         }
+        else {
+          text3.textContent = "message de base";
+        }
+
         if (valTemp2 < 5 || valTemp < 5) {
           console.log("il fait moins de 5°");
+
           let message4 = "il fait moins de 5°";
           text4.textContent = message4;
+
+          notif4.classList.add("element-liste4-active");
+
           var comptN4 = 1;
         }
-        /* comptNotif.textContent = comptN + 1; */
+        else {
+          text4.textContent = "message de base";
+        }
         valeurFinale = comptN + comptN1 + comptN2 + comptN3 + comptN4;
         comptNotif.textContent = valeurFinale;
 
+        /* affichage de la température (englet 1) */
         let tmp = document.querySelector(".temperature");
         tmp.textContent = latempExt;
         let valeurTemperature = document.querySelector(".la-temp");
@@ -362,6 +473,7 @@ function drawChart() {
         let valeurTemperature2 = document.querySelector(".la-temp2");
         valeurTemperature2.textContent = valTemp2;
     
+        /* affichage de la température (graphe) */
         var tabTemp = [];
         var tmpsAct = new Date();
         heure = tmpsAct.getHours();
@@ -394,7 +506,7 @@ function drawChart() {
           
       }))
     }
-  }, 6000) /* 60000 */
+  }, 10000) /* 60000 */
 }
 
 

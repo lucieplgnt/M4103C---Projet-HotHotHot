@@ -724,6 +724,7 @@ graphe - fin
   flex-direction: column;
   overflow: hidden;
   transition: all 0.5s ease;
+  cursor: pointer;
 }
 .outils-container {
   height: 500px;

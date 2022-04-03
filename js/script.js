@@ -577,7 +577,7 @@ socket.onerror = function(response) {
 };
 
 let deferredPrompt;
-const addBtn = document.querySelector('.add-button');
+const addBtn = document.querySelector('.bxs-download');
 addBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {

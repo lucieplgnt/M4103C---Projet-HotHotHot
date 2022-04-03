@@ -952,8 +952,36 @@ graphe - fin
   }
 }
 
-.add-button {
-  position: absolute;
-  top: 1px;
-  left: 1px;
+/* bouton de téléchargement */
+.dl-button {
+  width: 60px;
+  height: 60px;
+  z-index: 30;
+  position: fixed;
+  transform: translate(10%, -10%);
+  bottom: 50px;
+  left: 20px;
+  background: #fff;
+  border-radius: 30px;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.dl-button:hover {
+  background: #bb0a21;
+}
+.bxs-download {
+  color: rgb(34, 33, 42);
+  line-height: 30px;
+  font-size: 30px;
+}
+.dl-button:hover .bxs-download {
+  color: #fff;
 }

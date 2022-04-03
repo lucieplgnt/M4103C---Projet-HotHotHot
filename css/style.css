@@ -671,7 +671,6 @@ graphe - fin
   overflow: hidden;
   transition: all 0.5s ease;
   cursor: pointer;
-  position: relative;
 }
 .equipe-container {
   height: 500px;

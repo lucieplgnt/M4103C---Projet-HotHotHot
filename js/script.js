@@ -223,9 +223,9 @@ function drawChart() {
       console.log("changement de connection");
       const UrlApi = "https://hothothot.dog/api/capteurs";
       fetch(UrlApi)
-        .then((response) => reponse.json().then((data) => {
+        .then((response) => reponse.json().then((dataApi) => {
 
-            let capteurs = data;
+            let capteurs = dataApi;
             let ext = capteurs['capteurs'][1];
             let interieur = capteurs['capteurs'][0];
             var tempext = ext['Valeur'];
@@ -293,58 +293,60 @@ function drawChart() {
         }))
     };
     }
+
+
+    setInterval(()=>{
+      if(socket.readyState != 1) {
+        const UrlApi = "https://hothothot.dog/api/capteurs";
+        fetch(UrlApi).then((response) => response.json().then((dataApi) => {
+                    let capteurs = dataApi;
+                    console.log(data);
+                    let ext = capteurs['capteurs'][1];
+                    let interieur = capteurs['capteurs'][0];
+                    var tempext = ext['Valeur'];
+                    var tempint = interieur['Valeur'];
+                    let latempExt = "Température extérieur : " + tempext;
+                    let latempInt = "Température intérieur : " + interieur['Valeur'];
+                    console.log(latempExt);
+                    console.log(latempInt);
+                  
+                    let tmp = document.querySelector(".temperature");
+                    tmp.textContent = latempExt;
+                    let tmp2 = document.querySelector(".temperature2");
+                    tmp2.textContent= latempInt;
+                
+                    var tabTemp = [];
+                    var tmpsAct = new Date();
+                    heureNminute = tmpsAct.getHours();
+                    heureNminute = heureNminute + "h : " + tmpsAct.getMinutes() + "m | ";
+                    tempext = JSON.parse(tempext);
+                    tempint = JSON.parse(tempint);
+                    tabTemp.push(heureNminute);
+                    tabTemp.push(tempext);
+                    tabTemp.push(tempint);
+                    console.log(heureNminute);
+                    console.log(tabTemp);
+                    data.addRows([[tabTemp[0], tabTemp[1], tabTemp[2]]]);
+                    if (numberOfData >= 40)
+                    {
+                      numberOfData = 38;
+                      data.removeRow(0);
+                      data.removeRow(1);
+                    }
+                    else {
+                      numberOfData = numberOfData + 1;
+                    }
+    
+                    var chart = new google.visualization.LineChart(document.querySelector('.curve_chart'));
+                    chart.draw(data, options);
+                  
+                    console.log("data bien reçu");
+            
+          }))
+      }
+    }, 60000)
 }   
 
-setInterval(()=>{
-  if(socket.readyState != 1) {
-    const UrlApi = "https://hothothot.dog/api/capteurs";
-    fetch(UrlApi).then((response) => response.json().then((data) => {
-                let capteurs = data;
-                console.log(data);
-                let ext = capteurs['capteurs'][1];
-                let interieur = capteurs['capteurs'][0];
-                var tempext = ext['Valeur'];
-                var tempint = interieur['Valeur'];
-                let latempExt = "Température extérieur : " + tempext;
-                let latempInt = "Température intérieur : " + interieur['Valeur'];
-                console.log(latempExt);
-                console.log(latempInt);
-              
-                let tmp = document.querySelector(".temperature");
-                tmp.textContent = latempExt;
-                let tmp2 = document.querySelector(".temperature2");
-                tmp2.textContent= latempInt;
-            
-                var tabTemp = [];
-                var tmpsAct = new Date();
-                heureNminute = tmpsAct.getHours();
-                heureNminute = heureNminute + "h : " + tmpsAct.getMinutes() + "m | ";
-                tempext = JSON.parse(tempext);
-                tempint = JSON.parse(tempint);
-                tabTemp.push(heureNminute);
-                tabTemp.push(tempext);
-                tabTemp.push(tempint);
-                console.log(heureNminute);
-                console.log(tabTemp);
-                data.addRows([[tabTemp[0], tabTemp[1], tabTemp[2]]]);
-                if (numberOfData >= 40)
-                {
-                  numberOfData = 38;
-                  data.removeRow(0);
-                  data.removeRow(1);
-                }
-                else {
-                  numberOfData = numberOfData + 1;
-                }
-
-                var chart = new google.visualization.LineChart(document.querySelector('.curve_chart'));
-                chart.draw(data, options);
-              
-                console.log("data bien reçu");
-        
-      }))
-  }
-}, 60000)
 
 socket.onerror = function(response) {
 fetch("https://hothothot.dog/api/capteurs/exterieur",

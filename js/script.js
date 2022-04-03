@@ -221,7 +221,7 @@ function drawChart() {
     }
     else {
       console.log("changement de connection");
-      const UrlApi = "https://hothothot.dog/api/capteurs/";
+      const UrlApi = "https://hothothot.dog/api/capteurs";
       fetch(UrlApi)
         .then((response) => reponse.json().then((data) => {
 
@@ -299,7 +299,7 @@ setInterval(()=>{
   if(socket.readyState != 1) {
     const UrlApi = "https://hothothot.dog/api/capteurs";
     fetch(UrlApi)
-      .then((response) => reponse.json().then((data) => {
+      .then((response) => response.json().then((data) => {
               console.log("Received: "+msg.data.length);
               /* ajouter recup temp */
               if(msg.data.length > 0)

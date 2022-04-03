@@ -319,6 +319,7 @@ function drawChart() {
         if (notif1.classList.contains("element-liste1-active") && (valTemp < 16 || valTemp2 < 16)) {
           notif1.classList.remove("element-liste1-active");
           notif1.classList.add("element-liste1");
+          compN1 = 0;
         }
 
         if (valTemp > 22 || valTemp2 > 22) {
@@ -340,6 +341,7 @@ function drawChart() {
         if (notif2.classList.contains("element-liste2-active") && (valTemp < 22 || valTemp2 < 22)) {
           notif2.classList.remove("element-liste2-active");
           notif2.classList.add("element-liste2");
+          compN2 = 0;
         }
 
         if (valTemp2 < 12 || valTemp < 12) { /* 10 */
@@ -360,6 +362,7 @@ function drawChart() {
         if (notif3.classList.contains("element-liste3-active") && (valTemp > 12 || valTemp2 > 12)) {
           notif3.classList.remove("element-liste3-active");
           notif3.classList.add("element-liste3");
+          compN3 = 0;
         }
 
         if (valTemp2 < 5 || valTemp < 5) {
@@ -382,6 +385,7 @@ function drawChart() {
         if (notif4.classList.contains("element-liste4-active") && (valTemp > 5 || valTemp2 > 5)) {
           notif4.classList.remove("element-liste4-active");
           notif4.classList.add("element-liste4");
+          compN4 = 0;
         }
         valeurFinale = comptN + comptN1 + comptN2 + comptN3 + comptN4;
         comptNotif.textContent = valeurFinale;

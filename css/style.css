@@ -228,9 +228,11 @@ body.dark {
 .liste-1 li:hover .icon {
   color: #e6f331;
 }
-/* .liste-1 li:last-child {
-  border-bottom: none;
-} */
+@media (max-width: 600px) {
+  .liste-1 li .icon {
+    display: none;
+  }
+}
 .liste-1 li .icon {
   width: 25px;
   height: 25px;

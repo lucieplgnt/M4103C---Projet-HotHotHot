@@ -310,7 +310,7 @@ function drawChart() {
           var comptN1 = 1;
         }
         else {
-          text1.textContent = "message de base";
+          text1.textContent = "il fait bon";
         }
         notif1.addEventListener("click" , () =>{
           notif1.classList.remove("element-liste1-active");
@@ -327,7 +327,7 @@ function drawChart() {
           var comptN2 = 1;
         }
         else {
-          text2.textContent = "message de base";
+          text2.textContent = "il fait chaud";
         }
         notif2.addEventListener("click" , () =>{
           notif2.classList.remove("element-liste2-active");
@@ -343,7 +343,7 @@ function drawChart() {
           var comptN3 = 1;
         }
         else {
-          text3.textContent = "message de base";
+          text3.textContent = "il fait froid";
         }
         notif3.addEventListener("click" , () =>{
           notif3.classList.remove("element-liste3-active");
@@ -355,13 +355,11 @@ function drawChart() {
 
           let message4 = "il fait moins de 5°";
           text4.textContent = message4;
-
           notif4.classList.add("element-liste4-active");
-
           var comptN4 = 1;
         }
         else {
-          text4.textContent = "message de base";
+          text4.textContent = "c'est glacial";
         }
         notif4.addEventListener("click" , () =>{
           notif4.classList.remove("element-liste4-active");

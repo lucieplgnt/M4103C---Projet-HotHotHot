@@ -939,3 +939,9 @@ graphe - fin
     opacity: 1;
   }
 }
+
+.add-button {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+}

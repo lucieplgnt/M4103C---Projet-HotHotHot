@@ -306,9 +306,7 @@ function drawChart() {
 
           let message1 = "il fait bon aujourd'hui, +16°";
           text1.textContent = message1;
-
           notif1.classList.add("element-liste1-active");
-
           var comptN1 = 1;
         }
         else {
@@ -318,16 +316,18 @@ function drawChart() {
           notif1.classList.remove("element-liste1-active");
           notif1.classList.add("element-liste1");
         });
+        if (notif1.classList.contains("element-liste1-active") && (valTemp < 16 || valTemp2 < 16)) {
+          notif1.classList.remove("element-liste1-active");
+          notif1.classList.add("element-liste1");
+        }
 
         if (valTemp > 22 || valTemp2 > 22) {
           messageTest = "il fait chaud : " + valTemp + "°";
           console.log(messageTest);
 
-          let message2 = "la température dépasse 22°";
+          let message2 = messageTest;
           text2.textContent = message2;
-
           notif2.classList.add("element-liste2-active");
-
           var comptN2 = 1;
         }
         else {
@@ -337,15 +337,17 @@ function drawChart() {
           notif2.classList.remove("element-liste2-active");
           notif2.classList.add("element-liste2");
         });
+        if (notif2.classList.contains("element-liste2-active") && (valTemp < 22 || valTemp2 < 22)) {
+          notif2.classList.remove("element-liste2-active");
+          notif2.classList.add("element-liste2");
+        }
 
         if (valTemp2 < 12 || valTemp < 12) { /* 10 */
           console.log("il fait froid aujourd'hui, -12°");
 
           let message3 = "il fait froid aujourd'hui";
           text3.textContent = message3;
-
           notif3.classList.add("element-liste3-active");
-
           var comptN3 = 1;
         }
         else {
@@ -355,6 +357,10 @@ function drawChart() {
           notif3.classList.remove("element-liste3-active");
           notif3.classList.add("element-liste3");
         });
+        if (notif3.classList.contains("element-liste3-active") && (valTemp > 12 || valTemp2 > 12)) {
+          notif3.classList.remove("element-liste3-active");
+          notif3.classList.add("element-liste3");
+        }
 
         if (valTemp2 < 5 || valTemp < 5) {
           console.log("il fait moins de 5°");
@@ -373,6 +379,10 @@ function drawChart() {
           notif4.classList.remove("element-liste4-active");
           notif4.classList.add("element-liste4");
         });
+        if (notif4.classList.contains("element-liste4-active") && (valTemp > 5 || valTemp2 > 5)) {
+          notif4.classList.remove("element-liste4-active");
+          notif4.classList.add("element-liste4");
+        }
         valeurFinale = comptN + comptN1 + comptN2 + comptN3 + comptN4;
         comptNotif.textContent = valeurFinale;
 

@@ -304,8 +304,16 @@ function drawChart() {
         if (valTemp > 16 || valTemp2 > 16) {
           console.log("il fait bon aujourd'hui");
 
-          let message1 = "il fait bon aujourd'hui, +16°";
-          text1.textContent = message1;
+          if (valTemp > 16 && valTemp2 < 16) {
+            text1.textContent = "il fait plus de 16° dehors";
+          }
+          else if (valTemp < 16 && valTemp2 > 16) {
+            text1.textContent = "il fait plus de 16° à l'intérieur";
+          }
+          else if (valTemp > 16 && valTemp2 > 16) {
+            text1.textContent = "il fait plus de 16°";
+          }
+
           notif1.classList.add("element-liste1-active");
           var comptN1 = 1;
         }
@@ -318,11 +326,20 @@ function drawChart() {
         });
 
         if (valTemp > 22 || valTemp2 > 22) {
-          messageTest = "il fait chaud : " + valTemp + "°";
+          messageTest = "il fait chaud dehors : " + valTemp + "°";
+          messageTest1 = "il fait " + valTemp2 + "° à l'intérieur";
           console.log(messageTest);
 
-          let message2 = messageTest;
-          text2.textContent = message2;
+          if (valTemp > 22 && valTemp2 < 22) {
+            text2.textContent = messageTest;
+          }
+          else if (valTemp < 22 && valTemp2 > 22) {
+            text2.textContent = messageTest1;
+          }
+          else if (valTemp > 22 && valTemp2 > 22) {
+            text2.textContent = "il fait chaud aujourd'hui";
+          }
+          
           notif2.classList.add("element-liste2-active");
           var comptN2 = 1;
         }
@@ -334,11 +351,19 @@ function drawChart() {
           notif2.classList.add("element-liste2");
         });
 
-        if (valTemp2 < 12 || valTemp < 12) { /* 10 */
-          console.log("il fait froid aujourd'hui, -12°");
+        if (valTemp2 < 10 || valTemp < 10) { /* 10 */
+          console.log("il fait froid aujourd'hui, moins de 12°");
 
-          let message3 = "il fait froid aujourd'hui";
-          text3.textContent = message3;
+          if (valTemp < 10 && valTemp2 > 10) {
+            text3.textContent = "il fait froid dehors";
+          }
+          else if (valTemp > 10 && valTemp2 < 10) {
+            text3.textContent = "il fait froid à l'intérieur";
+          }
+          else if (valTemp < 10 && valTemp2 < 10) {
+            text3.textContent = "il fait froid";
+          }
+
           notif3.classList.add("element-liste3-active");
           var comptN3 = 1;
         }
@@ -353,8 +378,16 @@ function drawChart() {
         if (valTemp2 < 5 || valTemp < 5) {
           console.log("il fait moins de 5°");
 
-          let message4 = "il fait moins de 5°";
-          text4.textContent = message4;
+          if (valTemp < 5 && valTemp2 > 5) {
+            text4.textContent = "il fait moins de 5° dehors";
+          }
+          else if (valTemp > 5 && valTemp2 < 5) {
+            text4.textContent = "allumez le chauffage";
+          }
+          else if (valTemp < 5 && valTemp2 < 5) {
+            text4.textContent = "c'est glacial";
+          }
+
           notif4.classList.add("element-liste4-active");
           var comptN4 = 1;
         }
